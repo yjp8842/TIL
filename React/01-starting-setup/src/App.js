@@ -6,4 +6,6 @@ function App() {
   );
 }
 
+// 위의 코드가 js 파일에서 작동되는 이유는 JSX라는 기능 때문
+
 export default App;

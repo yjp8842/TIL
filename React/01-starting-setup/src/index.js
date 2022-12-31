@@ -1,6 +1,9 @@
 import ReactDOM from 'react-dom/client';
 
+// css 파일의 경우 확장자 표시 O
+// 서드파티 라이브러리 혹은 js 파일의 경우 import할 때 확장자 표시 X
 import './index.css';
+// App은 root라는 id를 갖는 요소가 있는 곳에 렌더링되는 컴포넌트
 import App from './App';
 
 // createRoot 메서드는 React에게 이것이 React 어플리케이션의 루트(root)이자 
