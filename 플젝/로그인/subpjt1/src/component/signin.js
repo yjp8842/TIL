@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 
 import { FormControl, FormHelperText } from '@mui/material';
-import Avatar from '@mui/material/Avatar';
+// import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -12,7 +12,7 @@ import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+// import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 // import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -23,7 +23,7 @@ export default function SignInSide() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get('email'),
+      id: data.get('id'),
       password: data.get('password'),
     });
   };
@@ -31,6 +31,7 @@ export default function SignInSide() {
   const [idError, setIdError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
+  // 유저가 아이디/비번 입력했을 때 비어있는 경우 에러 메시지 띄우는 함수
   function loginCheck() {
     const idCheck = document.getElementById('id')
     const passwordCheck = document.getElementById('password')
@@ -57,28 +58,41 @@ export default function SignInSide() {
           xs={false}
           sm={4}
           md={7}
-          sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random)',
-            backgroundRepeat: 'no-repeat',
-            backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+          sx={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            bgcolor: '#FAF6E9', 
           }}
-        />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          // sx={{
+          //   backgroundImage: 'url(https://source.unsplash.com/random)',
+          //   backgroundRepeat: 'no-repeat',
+          //   backgroundColor: (t) =>
+          //     t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+          //   backgroundSize: 'cover',
+          //   backgroundPosition: 'center',
+          // }}
+        >
+          <h1>마룸모</h1>
+          <h2>마이 룸에서 하는 스터디 모임</h2>
+        </Grid>
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <Box
             sx={{
               my: 8,
               mx: 4,
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center',
+              alignItems: 'center'
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <h1>
+              LOGIN
+            </h1>
+            {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
-            </Avatar>
+            </Avatar> */}
             <Box noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <FormControl component="fieldset" variant='standard'>
                 <Grid container spacing={2}>
@@ -117,24 +131,24 @@ export default function SignInSide() {
                   type="submit"
                   fullWidth
                   variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
+                  sx={{ mt: 3, mb: 4, bgcolor: '#4A4A4A' }}
                   onClick={loginCheck}
                   >
                   로그인
                 </Button>
                 <Grid container>
                   <Grid item xs={4} sx={{textAlign: 'center'}}>
-                    <Link href="#" variant="body2">
+                    <Link href="#" variant="body2" sx={{ color: '#000000', textDecoration: 'none' }}>
                       아이디 찾기
                     </Link>
                   </Grid>
                   <Grid item xs={4} sx={{textAlign: 'center'}}>
-                    <Link href="#" variant="body2">
+                    <Link href="#" variant="body2" sx={{ color: '#000000', textDecoration: 'none' }}>
                       비밀번호 찾기
                     </Link>
                   </Grid>
                   <Grid item xs={4} sx={{textAlign: 'center'}}>
-                    <Link href="#" variant="body2">
+                    <Link href="#" variant="body2" sx={{ color: '#000000', textDecoration: 'none' }}>
                       {"회원가입"}
                     </Link>
                   </Grid>
