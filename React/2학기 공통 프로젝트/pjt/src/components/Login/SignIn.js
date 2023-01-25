@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 
 import { FormControl, FormHelperText } from '@mui/material';
-import Avatar from '@mui/material/Avatar';
+// import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom'
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+// import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 // import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -25,13 +25,30 @@ import Typography from '@mui/material/Typography';
 
 const theme = createTheme();
 
-const style = {
+const style1= {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: "450px",
-  height: "350px",
+  height: "370px",
+  bgcolor: '#FFFFFF',
+  borderRadius: "30px",
+  boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
+  p: 4,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  paddingY: "50px"
+};
+
+const style2 = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: "450px",
+  height: "450px",
   bgcolor: '#FFFFFF',
   borderRadius: "30px",
   boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
@@ -106,12 +123,10 @@ export default function SignInSide() {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
-            </Avatar>
+            </Avatar> */}
             
-            <Link to='/calendar'>달력</Link>
-            <Link to='/profile'>프로필</Link>
             <Link to='/myroom'>마이룸</Link>
 
             <Box noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
@@ -168,7 +183,7 @@ export default function SignInSide() {
                       aria-labelledby="modal-modal-title"
                       aria-describedby="modal-modal-description"
                     >
-                      <Box sx={style}>
+                      <Box sx={style1}>
                         <Typography 
                           id="modal-modal-title"
                           sx={{
@@ -204,7 +219,7 @@ export default function SignInSide() {
                         <Button
                           sx={{
                             width: "80px",
-                            height: "60px",
+                            height: "50px",
                             marginTop: "20px",
                             color: "#000000",
                             fontSize: "15px",
@@ -226,7 +241,7 @@ export default function SignInSide() {
                       aria-labelledby="modal-modal-title"
                       aria-describedby="modal-modal-description"
                     >
-                      <Box sx={style}>
+                      <Box sx={style2}>
                         <Typography 
                           id="modal-modal-title"
                           sx={{
@@ -273,7 +288,7 @@ export default function SignInSide() {
                         <Button
                           sx={{
                             width: "80px",
-                            height: "60px",
+                            height: "50px",
                             marginTop: "20px",
                             color: "#000000",
                             fontSize: "15px",
