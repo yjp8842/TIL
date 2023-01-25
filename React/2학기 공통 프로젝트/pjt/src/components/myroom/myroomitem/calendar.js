@@ -6,9 +6,9 @@ class CalendarBox extends React.Component {
     return (
       <Box
         sx={{
-          width: "350px",
+          width: "250px",
           height: "220px",
-          marginLeft: "15px",
+          // marginLeft: "15px",
           borderRadius: "30px",
           backgroundColor: "#FFFFFF",
           boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)"

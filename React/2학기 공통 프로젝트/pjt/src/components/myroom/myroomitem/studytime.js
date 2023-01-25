@@ -6,9 +6,9 @@ class StudyTime extends React.Component {
     return (
       <Box
         sx={{
-          width: "850px",
+          width: "900px",
           height: "180px",
-          marginLeft: "15px",
+          // marginLeft: "15px",
           borderRadius: "30px",
           backgroundColor: "#FFFFFF",
           boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",

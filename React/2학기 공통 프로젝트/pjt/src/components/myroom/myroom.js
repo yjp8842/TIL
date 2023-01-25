@@ -1,8 +1,10 @@
 // import { Fragment } from 'react';
 import React from 'react';
+
 import { Grid } from '@mui/material';
 import { Box } from '@mui/system';
-import MyPage from './myroomitem/mypageicon';
+
+import HomePage from './myroomitem/homepage';
 import Profile from './myroomitem/profile';
 import StudyTime from './myroomitem/studytime';
 import Todo from './myroomitem/todo';
@@ -10,6 +12,7 @@ import CalendarBox from './myroomitem/calendar';
 import Memo from './myroomitem/memo';
 import TimeTable from './myroomitem/timetable';
 import Choice from './myroomitem/choice';
+import { Link } from 'react-router-dom';
 // import classes from '../rooms/myroom.css';
 // import mealsImage from '../../assets/meals.jpg';
 
@@ -19,14 +22,14 @@ const MyroomButton = () => {
       <Box
         sx={{
           width: "5vw",
-          minHeight: "100vh",
+          height: "100vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           backgroundColor: "#4A4A4A",
         }}>
         <Box>
-          <MyPage />
+          <HomePage />
         </Box>
         <Box
           sx={{
@@ -44,13 +47,10 @@ const MyroomButton = () => {
             justifyContent: "space-between"
           }}>
           <Box>
-            <MyPage />
-            <MyPage />
-            <MyPage />
+            <Link to={`/group`}><HomePage /></Link>
           </Box>
           <Box>
             <Box
-              type="button"
               sx={{
                 width: "4rem",
                 height: "4rem",
@@ -77,11 +77,12 @@ const MyroomButton = () => {
         <Box
           sx={{
             width: "95vw",
-            height: "25vh",
+            height: "24vh",
+            paddingY: "1vh",
             display: "flex",
-            alignItems: "center",
-            // justifyContent: "center",
-            backgroundColor: "#F9F4E2",
+            // alignItems: "center",
+            justifyContent: "space-evenly",
+            backgroundColor: "#ebe5d1",
           }}>
           <Profile />
           <StudyTime />
@@ -91,13 +92,13 @@ const MyroomButton = () => {
         <Box
           sx={{
             width: "90vw",
-            height: "75vh",
+            height: "70vh",
             display: "flex",
           }}>
           <Box
             sx={{
               width: "65vw",
-              height: "75vh",
+              height: "70vh",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -137,7 +138,7 @@ const MyroomButton = () => {
           <Box
             sx={{
               width: "25vw",
-              height: "75vh",
+              height: "70vh",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -149,7 +150,6 @@ const MyroomButton = () => {
           </Box>
         </Box>
       </Box>
-      {/* <img src={mealsImage} alt="A table full of delicious food!" /> */}
     </Grid>
   );
 };
