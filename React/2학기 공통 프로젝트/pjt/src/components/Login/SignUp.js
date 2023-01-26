@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useState} from 'react';
-import Avatar from '@mui/material/Avatar';
+
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -8,11 +8,12 @@ import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import { Paper } from '@mui/material';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
+
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import styled from 'styled-components';
 import FormHelperText from '@mui/material/FormHelperText';
+
+import { postSignUpData } from './SignUpLogic';
 // import SignInSide from './SignInSide'
 // import axios from 'axios';
 // import { useNavigate } from 'react-router-dom';
@@ -149,15 +150,24 @@ export default function SignUp() {
           xs={false}
           sm={4}
           md={7}
+          // sx={{
+          //   backgroundImage: 'url(https://source.unsplash.com/random)',
+          //   backgroundRepeat: 'no-repeat',
+          //   backgroundColor: (t) =>
+          //     t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+          //   backgroundSize: 'cover',
+          //   backgroundPosition: 'center',
+          // }}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random)',
-            backgroundRepeat: 'no-repeat',
-            backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            bgcolor: '#FAF6E9',
           }}
-        />
+        >
+          <h1>마룸모</h1>
+        </Grid>
         
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} backgroundColor='#FAF6E9' square>
 
@@ -170,12 +180,8 @@ export default function SignUp() {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
-              회원가입
-            </Typography>
+
+            <h1>회원가입</h1>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
               <Grid container spacing={2} justifyContent='center'>
                 <Grid item xs={8}>
@@ -189,6 +195,9 @@ export default function SignUp() {
                     label="이름"
                     autoFocus
                     error={nameError !== '' || false}
+                    sx={{
+                      bgcolor: '#FFFFFF'
+                    }}
                   />
                 </Grid>  
                 <FormHelperTexts>{nameError}</FormHelperTexts>
@@ -202,6 +211,9 @@ export default function SignUp() {
                     id="id"
                     label="아이디"
                     error={idError !== '' || false}
+                    sx={{
+                      bgcolor: '#FFFFFF'
+                    }}
                   />
                   {/* 닉네임 넣기 */}
                 </Grid>  
@@ -217,6 +229,9 @@ export default function SignUp() {
                     label="닉네임"
                     
                     error={nicknameError !== '' || false}
+                    sx={{
+                      bgcolor: '#FFFFFF'
+                    }}
                   />
                   {/* 닉네임 넣기 */}
                 </Grid>  
@@ -231,6 +246,9 @@ export default function SignUp() {
                     name="email"
                     autoComplete="이메일 주소"
                     error={emailError !== '' || false}
+                    sx={{
+                      bgcolor: '#FFFFFF'
+                    }}
                   />
                 </Grid>  
                 <FormHelperTexts>{emailError}</FormHelperTexts>
@@ -245,6 +263,9 @@ export default function SignUp() {
                     id="password"
                     autoComplete="new-password"
                     error={passwordState !== '' || false}
+                    sx={{
+                      bgcolor: '#FFFFFF'
+                    }}
                   />
                 </Grid>
                 <FormHelperTexts>{passwordState}</FormHelperTexts>
@@ -259,15 +280,19 @@ export default function SignUp() {
                     id="rePassword"
                     autoComplete="new-password"
                     error={passwordError !== '' || false}
+                    sx={{
+                      bgcolor: '#FFFFFF'
+                    }}
                   />
                 </Grid>
                 <FormHelperTexts>{passwordError}</FormHelperTexts>
                 <Grid item xs={8}>
                   <Button
+                    onClick={postSignUpData}
                     type="submit"
                     fullWidth
                     variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
+                    sx={{ mt: 3, mb: 2, bgcolor: '#FFFFFF' }}
                   >
                     회원가입
                   </Button>

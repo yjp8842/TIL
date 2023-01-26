@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import MyroomButton from './components/myroom/myroom';
-import Grouproom from './components/grouproom/grouproom';
+import MyRoom from './components/MyRoom/MyRoom';
+import GroupRoom from './components/GroupRoom/GroupRoom';
 import SignInSide from './components/Login/SignIn';
 import SignUp from './components/Login/SignUp';
 // import { Box } from '@mui/system';
@@ -13,8 +13,8 @@ function App() {
       <Routes>
         <Route path='/' element={<SignInSide/>}/>
         <Route path='/signup' element={<SignUp/>}/>
-        <Route path="/myroom" element={<MyroomButton />} />
-        <Route path="/group" element={<Grouproom />} />
+        <Route path="/myroom" element={<MyRoom />} />
+        <Route path="/group" element={<GroupRoom />} />
       </Routes>
     </BrowserRouter>
   );

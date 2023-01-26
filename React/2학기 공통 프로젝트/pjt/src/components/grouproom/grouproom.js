@@ -3,14 +3,14 @@ import React from 'react';
 
 import { Grid } from '@mui/material';
 import { Box } from '@mui/system';
-import HomePage from '../myroom/myroomitem/homepage';
+import HomePage from '../MyRoom/MyRoomItem/PageIcon';
 import { Link } from 'react-router-dom';
-import Profile from '../myroom/myroomitem/profile';
-import CalendarBox from '../myroom/myroomitem/calendar';
+import Profile from '../MyRoom/MyRoomItem/Profile';
+import CalendarBox from '../MyRoom/MyRoomItem/Calendar';
 // import classes from '../rooms/myroom.css';
 // import mealsImage from '../../assets/meals.jpg';
 
-const Grouproom = () => {
+const GroupRoom = () => {
   return (
     <Grid container>
       <Box
@@ -122,4 +122,4 @@ const Grouproom = () => {
   );
 };
 
-export default Grouproom;
+export default GroupRoom;

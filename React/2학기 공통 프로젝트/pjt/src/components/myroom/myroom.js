@@ -4,19 +4,19 @@ import React from 'react';
 import { Grid } from '@mui/material';
 import { Box } from '@mui/system';
 
-import HomePage from './myroomitem/homepage';
-import Profile from './myroomitem/profile';
-import StudyTime from './myroomitem/studytime';
-import Todo from './myroomitem/todo';
-import CalendarBox from './myroomitem/calendar';
-import Memo from './myroomitem/memo';
-import TimeTable from './myroomitem/timetable';
-import Choice from './myroomitem/choice';
+import PageIcon from './MyRoomItem/PageIcon';
+import Profile from './MyRoomItem/Profile';
+import StudyTime from './MyRoomItem/StudyTime';
+import Todo from './MyRoomItem/Todo';
+import CalendarBox from './MyRoomItem/Calendar';
+import Memo from './MyRoomItem/Memo';
+import TimeTable from './MyRoomItem/TimeTable';
+import Choice from './MyRoomItem/Choice';
 import { Link } from 'react-router-dom';
 // import classes from '../rooms/myroom.css';
 // import mealsImage from '../../assets/meals.jpg';
 
-const MyroomButton = () => {
+const MyRoom = () => {
   return (
     <Grid container>
       <Box
@@ -29,7 +29,7 @@ const MyroomButton = () => {
           backgroundColor: "#4A4A4A",
         }}>
         <Box>
-          <HomePage />
+          <PageIcon />
         </Box>
         <Box
           sx={{
@@ -47,7 +47,7 @@ const MyroomButton = () => {
             justifyContent: "space-between"
           }}>
           <Box>
-            <Link to={`/group`}><HomePage /></Link>
+            <Link to={`/group`}><PageIcon /></Link>
           </Box>
           <Box>
             <Box
@@ -154,4 +154,4 @@ const MyroomButton = () => {
   );
 };
 
-export default MyroomButton;
+export default MyRoom;

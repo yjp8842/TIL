@@ -3,7 +3,7 @@ import { Box } from '@mui/system';
 import { Avatar } from '@mui/material';
 // import { green } from '@mui/material/colors';
 
-class HomePage extends React.Component {
+class PageIcon extends React.Component {
   render() {
     return (
       <Box
@@ -39,4 +39,4 @@ class HomePage extends React.Component {
   }
 }
 
-export default HomePage;
+export default PageIcon;

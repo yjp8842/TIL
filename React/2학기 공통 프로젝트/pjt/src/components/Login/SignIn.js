@@ -1,27 +1,20 @@
 import * as React from 'react';
 import { useState } from 'react';
+import { requestLogin } from './Login';
 
 import { FormControl, FormHelperText } from '@mui/material';
-// import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Checkbox from '@mui/material/Checkbox';
-// import Link from '@mui/material/Link';
 import { Link } from 'react-router-dom'
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-// import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-// import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { Modal } from '@mui/material';
 import Typography from '@mui/material/Typography';
-
-// import SignUp from './SignUp';
-// import {BrowserRouter, Route, Routes} from 'react-router-dom';
+// import FindId from './FindId';
 
 const theme = createTheme();
 
@@ -32,14 +25,14 @@ const style1= {
   transform: 'translate(-50%, -50%)',
   width: "450px",
   height: "370px",
-  bgcolor: '#FFFFFF',
+  bgcolor: '#4A4A4A',
   borderRadius: "30px",
   boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
   p: 4,
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  paddingY: "50px"
+  justifyContent: "center",
 };
 
 const style2 = {
@@ -49,14 +42,14 @@ const style2 = {
   transform: 'translate(-50%, -50%)',
   width: "450px",
   height: "450px",
-  bgcolor: '#FFFFFF',
+  bgcolor: '#4A4A4A',
   borderRadius: "30px",
   boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
   p: 4,
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  paddingY: "50px"
+  justifyContent: 'center'
 };
 
 export default function SignInSide() {
@@ -64,7 +57,7 @@ export default function SignInSide() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get('email'),
+      id: data.get('id'),
       password: data.get('password'),
     });
   };
@@ -97,7 +90,7 @@ export default function SignInSide() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid container component="main" sx={{ height: '100vh', fontFamily: "fontFamily: 'GangwonEdu_OTFBoldA'" }}>
+      <Grid container component="main" sx={{ height: '100vh', fontFamily: "GangwonEdu_OTFBoldA" }}>
         <CssBaseline />
         <Grid
           item
@@ -105,75 +98,89 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random)',
-            backgroundRepeat: 'no-repeat',
-            backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            bgcolor: '#FAF6E9',
           }}
-        />
-        <Grid item xs={12} sm={8} md={5} component={Paper} backgroundColor='#FAF6E9' elevation={6} square>
+        > 
+          {/* <img src='../../assets/img/logo.png' alt='logo' /> */}
+          <h1>마룸모</h1>
+        </Grid>
+        <Grid item xs={12} sm={8} md={5} component={Paper} backgroundColor='#FAF6E9' elevation={6} square sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <Box
             sx={{
               my: 8,
               mx: 4,
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center',
+              alignItems: 'center'
             }}
           >
             {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
             </Avatar> */}
             
+            <h1>로그인</h1>
             <Link to='/myroom'>마이룸</Link>
-
-            <Box noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-              <FormControl component="fieldset" variant='standard'>
-                <Grid container spacing={2}>
-                  <Grid item xs={12}>
+            <Box noValidate onSubmit={handleSubmit} sx={{ mt: 3, width: "30vw" }}>
+              <FormControl component="fieldset" variant='standard' sx={{width: "30vw"}}>
+                <Box spacing={2} sx={{display: "flex", justifyContent: "center"}}>
+                  <Box container sx={{display: 'flex', flexDirection: 'column', width: "15vw"}}>
                     <TextField
                       margin="normal"
                       required
-                      fullWidth
                       id="id"
                       label="아이디"
                       name="id"
                       autoComplete="id"
                       autoFocus
+                      sx={{
+                        bgcolor: '#FFFFFF',
+                      }}
                     />
                     <FormHelperText>{idError}</FormHelperText>
-                  </Grid>
-                  <Grid item xs={12}>
                     <TextField
                       margin="normal"
                       required
-                      fullWidth
+                      // fullWidth
                       name="password"
                       label="비밀번호"
                       type="password"
                       id="password"
                       autoComplete="current-password"
-                      />
+                      sx={{
+                        bgcolor: '#FFFFFF',
+
+                      }} 
+                    />
                     <FormHelperText>{passwordError}</FormHelperText>
-                  </Grid>
-                  {/* <FormControlLabel
-                    control={<Checkbox value="remember" color="primary" />}
-                    label="Remember me"
-                  /> */}
-                </Grid>
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                  onClick={loginCheck}
-                  >
-                  로그인
-                </Button>
-                <Grid container>
-                  <Grid item xs={4} sx={{textAlign: 'center'}}>
+
+                  </Box>
+
+                  <Button
+                    type="submit"
+                    sx={{ 
+                      mt: 2,
+                      mb: 2,
+                      ml: 2,
+                      backgroundColor: '#FFFFFF', 
+                      color: '#000000', 
+                      fontFamily: "GangwonEdu_OTFBoldA",
+                      boxShadow: "5px 5px 4px rgba(0, 0, 0, 0.15)"
+                    }}
+                    onClick={() => {
+                      loginCheck();
+                      requestLogin();
+                    }}
+                    >
+                    로그인
+                  </Button>
+
+                </Box>
+                <Grid container sx={{mt: 5, display: 'flex', justifyContent: 'center'}}>
+                  <Grid item xs={3} sx={{textAlign: 'center'}}>
                     <Link href="#" underline='hover' variant="body2" onClick={idHandleOpen}>
                       아이디 찾기
                     </Link>
@@ -189,7 +196,8 @@ export default function SignInSide() {
                           sx={{
                             textAlign: "center",
                             fontFamily: 'GangwonEdu_OTFBoldA',
-                            fontSize: "30px"
+                            fontSize: "30px",
+                            color: '#FFFFFF'
                           }}
                         >
                           아이디 찾기
@@ -201,8 +209,8 @@ export default function SignInSide() {
                           sx={{
                             marginTop: "20px",
                             width: "80%",
-                            border: "1px solid #000000",
-                            borderRadius: "10px"
+                            borderRadius: "10px",
+                            bgcolor: '#FFFFFF'
                           }}
                         />
                         <TextField
@@ -212,26 +220,31 @@ export default function SignInSide() {
                           sx={{
                             marginTop: "20px",
                             width: "80%",
-                            border: "1px solid #000000",
-                            borderRadius: "10px"
+                            borderRadius: "10px",
+                            bgcolor: '#FFFFFF'
                           }}
                         />
                         <Button
+                          type="submit"
                           sx={{
                             width: "80px",
                             height: "50px",
-                            marginTop: "20px",
+                            marginTop: "30px",
+                            bgcolor: '#FFFFFF',
                             color: "#000000",
                             fontSize: "15px",
                             boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
                             // border: "1px solid #000000",
                             borderRadius: "15px",
+                            ":hover": {
+                              bgcolor: 'c4c4c4'
+                            }
                           }}
                         >확인</Button>
                       </Box>
                     </Modal>
                   </Grid>
-                  <Grid item xs={4} sx={{textAlign: 'center'}}>
+                  <Grid item xs={3} sx={{textAlign: 'center'}}>
                     <Link href="#" underline='hover' variant="body2" onClick={passwordHandleOpen}>
                       비밀번호 찾기
                     </Link>
@@ -247,7 +260,8 @@ export default function SignInSide() {
                           sx={{
                             textAlign: "center",
                             fontFamily: 'GangwonEdu_OTFBoldA',
-                            fontSize: "30px"
+                            fontSize: "30px",
+                            color: '#FFFFFF'
                           }}
                         >
                           비밀번호 찾기
@@ -260,7 +274,8 @@ export default function SignInSide() {
                             marginTop: "20px",
                             width: "80%",
                             border: "1px solid #000000",
-                            borderRadius: "10px"
+                            borderRadius: "10px",
+                            bgcolor: '#FFFFFF'
                           }}
                         />
                         <TextField
@@ -271,7 +286,8 @@ export default function SignInSide() {
                             marginTop: "20px",
                             width: "80%",
                             border: "1px solid #000000",
-                            borderRadius: "10px"
+                            borderRadius: "10px",
+                            bgcolor: '#FFFFFF'
                           }}
                         />
                         <TextField
@@ -282,10 +298,12 @@ export default function SignInSide() {
                             marginTop: "20px",
                             width: "80%",
                             border: "1px solid #000000",
-                            borderRadius: "10px"
+                            borderRadius: "10px",
+                            bgcolor: '#FFFFFF'
                           }}
                         />
                         <Button
+                          type="submit"
                           sx={{
                             width: "80px",
                             height: "50px",
@@ -295,12 +313,13 @@ export default function SignInSide() {
                             boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
                             // border: "1px solid #000000",
                             borderRadius: "15px",
+                            bgcolor: '#FFFFFF'
                           }}
                         >확인</Button>
                       </Box>
                     </Modal>
                   </Grid>
-                  <Grid item xs={4} sx={{textAlign: 'center'}}>
+                  <Grid item xs={3} sx={{textAlign: 'center'}}>
                     <Link href='#' underline='hover' varient='body2' to="/signup">
                       회원가입
                     </Link>
