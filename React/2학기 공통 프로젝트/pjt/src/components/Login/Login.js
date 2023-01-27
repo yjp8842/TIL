@@ -48,10 +48,12 @@ export function requestLogin() {
       })
       .then(() => {
         console.log(2)
-        this.props.history.push('/');
+        this.props.history.push('/myroom');
       })
       .catch(() => {
         alert('가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.');
+        // this.props.history.push('/');
+        window.location.reload();
       })
   );
 }

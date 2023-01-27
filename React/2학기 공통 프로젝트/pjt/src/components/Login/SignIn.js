@@ -65,19 +65,25 @@ export default function SignInSide() {
   const [idError, setIdError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-  function loginCheck() {
+  function loginCheck(e) {
     const idCheck = document.getElementById('id')
     const passwordCheck = document.getElementById('password')
     if (!idCheck.value) {
       setIdError('아이디를 입력해주세요');
       idCheck.focus();
+      e.preventDefault();
       return;
+    } else {
+      setIdError('');
     }
 
     if (!passwordCheck.value) {
       setPasswordError('비밀번호를 입력해주세요');
       passwordCheck.focus();
+      e.preventDefault();
       return;
+    } else {
+      setPasswordError('');
     }
   }
 
