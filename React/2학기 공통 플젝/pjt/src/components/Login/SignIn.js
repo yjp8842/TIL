@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import './Login.css';
 import { FindId } from './FindId';
+import { FindPwd } from './FindPwd';
 
 import { FormControl, FormHelperText, Button, CssBaseline, TextField, Paper, Box, Grid, Typography, Modal } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -17,11 +18,11 @@ const style1= {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: "450px",
-  height: "370px",
+  height: "400px",
   bgcolor: '#4A4A4A',
-  borderRadius: "30px",
+  borderRadius: "50px",
   boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
-  p: 4,
+  p: 3,
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -34,11 +35,11 @@ const style2 = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: "450px",
-  height: "450px",
+  height: "480px",
   bgcolor: '#4A4A4A',
-  borderRadius: "30px",
+  borderRadius: "50px",
   boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
-  p: 4,
+  p: 3,
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -123,11 +124,11 @@ export default function SignInSide() {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              bgcolor: '#FFFFFF',
-              height: '400px',
-              width: '550px',
-              borderRadius :'50px',
-              boxShadow: "5px 5px 4px rgba(0, 0, 0, 0.25)"
+              // bgcolor: '#FFFFFF',
+              // height: '400px',
+              // width: '550px',
+              // borderRadius :'50px',
+              // boxShadow: "5px 5px 4px rgba(0, 0, 0, 0.25)"
             }}
           >
             
@@ -213,7 +214,7 @@ export default function SignInSide() {
                         </Typography>
                         <TextField
                           required
-                          id="find-name"
+                          id="name-id"
                           placeholder='이름'
                           sx={{
                             marginTop: "20px",
@@ -224,7 +225,7 @@ export default function SignInSide() {
                         />
                         <TextField
                           required
-                          id="find-email"
+                          id="email-id"
                           placeholder='이메일 주소'
                           sx={{
                             marginTop: "20px",
@@ -250,7 +251,9 @@ export default function SignInSide() {
                               bgcolor: 'c4c4c4'
                             }
                           }}
-                        >확인</Button>
+                        >
+                          <p>확인</p>
+                        </Button>
                       </Box>
                     </Modal>
                   </Grid>
@@ -278,7 +281,7 @@ export default function SignInSide() {
                         </Typography>
                         <TextField
                           required
-                          id="outlined-required"
+                          id="name-pwd"
                           placeholder='이름'
                           sx={{
                             marginTop: "20px",
@@ -290,7 +293,7 @@ export default function SignInSide() {
                         />
                         <TextField
                           required
-                          id="outlined-required"
+                          id="id-pwd"
                           placeholder='아이디'
                           sx={{
                             marginTop: "20px",
@@ -302,7 +305,7 @@ export default function SignInSide() {
                         />
                         <TextField
                           required
-                          id="outlined-required"
+                          id="email-pwd"
                           placeholder='이메일 주소'
                           sx={{
                             marginTop: "20px",
@@ -313,6 +316,7 @@ export default function SignInSide() {
                           }}
                         />
                         <Button
+                          onClick={FindPwd}
                           type="submit"
                           sx={{
                             width: "80px",
