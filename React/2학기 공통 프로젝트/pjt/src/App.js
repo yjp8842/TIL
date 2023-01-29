@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import MyRoom from './components/MyRoom/MyRoom';
+import MyRoom from './components/myroom/MyRoom';
 import GroupRoom from './components/GroupRoom/GroupRoom';
 import SignInSide from './components/Login/SignIn';
 import SignUp from './components/Login/SignUp';

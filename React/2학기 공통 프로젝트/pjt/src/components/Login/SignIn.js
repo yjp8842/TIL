@@ -1,20 +1,10 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { requestLogin } from './Login';
-
-import { FormControl, FormHelperText } from '@mui/material';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom'
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import { Modal } from '@mui/material';
-import Typography from '@mui/material/Typography';
-// import FindId from './FindId';
+import { FormControl, FormHelperText, Button, CssBaseline, TextField, Paper, Box, Grid, Typography, Modal } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme();
 
@@ -62,6 +52,7 @@ export default function SignInSide() {
     });
   };
 
+  // id와 password가 빈칸인지 체크하는 함수
   const [idError, setIdError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
@@ -87,6 +78,7 @@ export default function SignInSide() {
     }
   }
 
+  // 아이디, 비번 찾기 모달 띄움
   const [idopen, idSetOpen] = React.useState(false);
   const [pwdopen, pwdSetOpen] = React.useState(false);
   const idHandleOpen = () => idSetOpen(true);
@@ -111,10 +103,10 @@ export default function SignInSide() {
             bgcolor: '#FAF6E9',
           }}
         > 
-          {/* <img src='../../assets/img/logo.png' alt='logo' /> */}
+          {/* <img src='../../src/assets/logo.png' alt='logo' /> */}
           <h1>마룸모</h1>
         </Grid>
-        <Grid item xs={12} sm={8} md={5} component={Paper} backgroundColor='#FAF6E9' elevation={6} square sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', bgcolor: '#FAF6E9' }}>
           <Box
             sx={{
               my: 8,
@@ -124,9 +116,6 @@ export default function SignInSide() {
               alignItems: 'center'
             }}
           >
-            {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-              <LockOutlinedIcon />
-            </Avatar> */}
             
             <h1>로그인</h1>
             <Link to='/myroom'>마이룸</Link>
@@ -177,8 +166,8 @@ export default function SignInSide() {
                       boxShadow: "5px 5px 4px rgba(0, 0, 0, 0.15)"
                     }}
                     onClick={() => {
-                      loginCheck();
                       requestLogin();
+                      loginCheck();
                     }}
                     >
                     로그인

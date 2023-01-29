@@ -27,33 +27,48 @@ import axios from "axios";
 // };
 
 export function requestLogin() {
-  const id = document.getElementById('id').value;
-  const password = document.getElementById('password').value;
+  const id = document.getElementById('id');
+  const password = document.getElementById('password');
 
-  const loginData = {
-    id: id,
-    password: password,
-  };
+  // const loginData = {
+  //   id: id,
+  //   password: password,
+  // };
 
-  const url = '/user/login'
+  // const url = '/user/login'
 
-  return (
-    axios
-      .post(url, loginData)
-      .then((response) => {
-        if (response.status >= 200 && response.status <= 204) {
-          console.log(1)
-          this.props.handleLogin();
-        }
-      })
-      .then(() => {
-        console.log(2)
-        this.props.history.push('/myroom');
-      })
-      .catch(() => {
-        alert('가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.');
-        // this.props.history.push('/');
-        window.location.reload();
-      })
-  );
+  // return (
+  //   axios
+  //     .post(url, loginData)
+  //     .then((response) => {
+  //       if (response.status >= 200 && response.status <= 204) {
+  //         console.log(1)
+  //         this.props.handleLogin();
+  //       }
+  //     })
+  //     .then(() => {
+  //       console.log(2)
+  //       this.props.history.push('/myroom');
+  //     })
+  //     .catch(() => {
+  //       alert('가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.');
+  //       // this.props.history.push('/');
+  //       window.location.reload();
+  //     })
+  // );
+  axios({
+    method:"POST",
+    url: '/api/login',
+    data:{
+        "id": id.value,
+        "password": password.value,
+    }
+  })
+  .then((res)=>{
+    console.log(res);
+  })
+  .catch(error=>{
+    console.log(error);
+    throw new Error(error);
+  });
 }
