@@ -16,7 +16,7 @@ import './GroupRoomItem/Category.css';
 // import classes from '../rooms/myroom.css';
 // import mealsImage from '../../assets/meals.jpg';
 
-const GroupRoom = () => {
+const GroupChat = () => {
   return (
     <Grid container>
       <Box
@@ -108,94 +108,24 @@ const GroupRoom = () => {
         <Box
           sx={{
             display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            // justifyContent: 'center'
+            flexDirection: 'column'
           }}>
-          <Box 
-            sx={{
-              display: 'flex',
-              justifyContent: 'space-evenly',
-              width: '1000px'
-            }}>
-            <Box
-                sx={{
-                  width: "500px",
-                  height: "250px",
-                  marginTop: "20px",
-                  paddingY: '20px',
-                  borderRadius: "30px",
-                  backgroundColor: "#FFFFFF",
-                  boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
-                  display: 'flex',
-                  justifyContent: 'center'
-              }}>
-                <h3>할 일</h3>
-              </Box>
-            <Box 
-              sx={{
-                width: '400px',
-                height: '250px',
-                marginTop: "20px",
-                paddingY: '20px',
-                borderRadius: "30px",
-                backgroundColor: "#FFFFFF",
-                boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
-                display: 'flex',
-                justifyContent: 'center'
-            }}>
-              <h3>완료한 일</h3>
-            </Box>
-          </Box>
-
           <Box
             sx={{
+              width: "950px",
+              height: "250px",
+              marginTop: "20px",
+              paddingY: '20px',
+              borderRadius: "30px",
+              backgroundColor: "#FFFFFF",
+              boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
               display: 'flex',
-              justifyContent: 'space-evenly',
-              width: '1000px'
-            }}>
-            <Box
-              sx={{
-                width: "450px",
-                height: "250px",
-                marginTop: "20px",
-                paddingY: '20px',
-                borderRadius: "30px",
-                backgroundColor: "#FFFFFF",
-                boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
-                display: 'flex',
-                justifyContent: 'center'
-              }}>
-                <h3>My MEMO</h3>
-            </Box>
-            <Box
-              sx={{
-                width: "450px",
-                height: "250px",
-                marginTop: "20px",
-                paddingY: '20px',
-                borderRadius: "30px",
-                backgroundColor: "#FFFFFF",
-                boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
-                display: 'flex',
-                justifyContent: 'center'
-              }}>
-                <h3>Group MEMO</h3>
-            </Box>
-          </Box>
+              justifyContent: 'center'
+          }} />
 
-          <Box
-              sx={{
-                width: "950px",
-                height: "250px",
-                marginTop: "20px",
-                paddingY: '20px',
-                borderRadius: "30px",
-                backgroundColor: "#FFFFFF",
-                boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
-                display: 'flex',
-                justifyContent: 'center'
-            }} />
+          <Box sx={{mt:5}}>
+            <h1>채팅방</h1>
+          </Box>
         </Box>
 
         <Box
@@ -246,4 +176,4 @@ const GroupRoom = () => {
   );
 };
 
-export default GroupRoom;
+export default GroupChat;
