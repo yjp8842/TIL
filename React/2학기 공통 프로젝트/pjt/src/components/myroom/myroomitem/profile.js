@@ -11,10 +11,9 @@ class Profile extends React.Component {
     function onChange() {
       const inputText = document.getElementById('input-text');
       const inputSample = document.getElementById('input-sample');
-
+      // console.log(inputSample.classList.contains('display'))
       inputSample.classList.remove('display');
       inputText.classList.add('display');
-
     }
     return (
       <Box
