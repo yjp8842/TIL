@@ -27,8 +27,8 @@ import axios from "axios";
 // };
 
 export function requestLogin() {
-  const id = document.getElementById('id');
-  const password = document.getElementById('password');
+  const id = document.getElementById('id').value;
+  const password = document.getElementById('password').value;
 
   // const loginData = {
   //   id: id,
@@ -58,17 +58,17 @@ export function requestLogin() {
   // );
   axios({
     method:"POST",
-    url: '/api/login',
+    url: '/user/login',
     data:{
-        "id": id.value,
-        "password": password.value,
+        "id": id,
+        "password": password,
     }
   })
   .then((res)=>{
     console.log(res);
   })
-  .catch(error=>{
-    console.log(error);
-    throw new Error(error);
+  .catch((err)=>{
+    console.log(err);
+    throw new Error(err);
   });
 }

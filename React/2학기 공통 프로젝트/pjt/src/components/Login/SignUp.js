@@ -1,6 +1,8 @@
 import * as React from 'react';
 import {useState} from 'react';
 
+import './Login.css';
+
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -161,12 +163,18 @@ export default function SignUp() {
           sx={{
             display: 'flex', 
             flexDirection: 'column', 
-            alignItems: 'center', 
+            // alignItems: 'center', 
             justifyContent: 'center', 
             bgcolor: '#FAF6E9',
           }}
         >
-          <h1>마룸모</h1>
+          <div className='inbox'>
+            <img src='images/mrmlogo.png' alt='logo' className='imgbox' />
+            <div className='fontbox'>
+              <h1 className='font'>마룸모</h1>
+              <h1>마이 룸에서 하는 스터디 모임</h1>
+            </div>
+          </div>
         </Grid>
         
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} backgroundColor='#FAF6E9' square>
@@ -178,6 +186,7 @@ export default function SignUp() {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
+              justifyContent: 'center'
             }}
           >
 
@@ -292,14 +301,21 @@ export default function SignUp() {
                     type="submit"
                     fullWidth
                     variant="contained"
-                    sx={{ mt: 3, mb: 2, bgcolor: '#FFFFFF' }}
+                    sx={{ 
+                      mt: 3, 
+                      mb: 2, 
+                      bgcolor: '#FFFFFF', 
+                      color: '#000000', 
+                      fontFamily: "GangwonEdu_OTFBoldA", 
+                      boxShadow: "5px 5px 4px rgba(0, 0, 0, 0.15)" 
+                    }}
                   >
                     회원가입
                   </Button>
                   {/* <FormHelperTexts>{signUPError}</FormHelperTexts> */}
                   <Grid container justifyContent="flex-end">
                     <Grid item>
-                      <Link href="./" variant="body2">
+                      <Link href="./" variant="body2" underline='hover'>
                         이미 가입하셨다면 로그인하세요
                       </Link>
                     </Grid>

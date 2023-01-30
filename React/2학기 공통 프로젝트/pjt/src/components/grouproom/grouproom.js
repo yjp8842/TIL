@@ -3,10 +3,10 @@ import React from 'react';
 
 import { Grid } from '@mui/material';
 import { Box } from '@mui/system';
-import HomePage from '../myroom/MyRoomItem/PageIcon';
+import HomePage from '../MyRoom/MyRoomItem/PageIcon';
 import { Link } from 'react-router-dom';
-import Profile from '../myroom/MyRoomItem/Profile';
-import CalendarBox from '../myroom/MyRoomItem/Calendar';
+import Profile from '../MyRoom/MyRoomItem/Profile';
+import CalendarBox from '../MyRoom/MyRoomItem/Calendar';
 // import classes from '../rooms/myroom.css';
 // import mealsImage from '../../assets/meals.jpg';
 

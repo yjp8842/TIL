@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { requestLogin } from './Login';
-import { Link } from 'react-router-dom'
+import { requestLogin } from './SignInLogic';
+import { Link } from 'react-router-dom';
+
+import './Login.css';
+import { FindId } from './FindId';
 
 import { FormControl, FormHelperText, Button, CssBaseline, TextField, Paper, Box, Grid, Typography, Modal } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -98,13 +101,18 @@ export default function SignInSide() {
           sx={{
             display: 'flex', 
             flexDirection: 'column', 
-            alignItems: 'center', 
+            // alignItems: 'center', 
             justifyContent: 'center', 
             bgcolor: '#FAF6E9',
           }}
         > 
-          {/* <img src='../../src/assets/logo.png' alt='logo' /> */}
-          <h1>마룸모</h1>
+          <div className='inbox'>
+            <img src='images/mrmlogo.png' alt='logo' className='imgbox' />
+            <div className='fontbox'>
+              <h1 className='font'>마룸모</h1>
+              <h1>마이 룸에서 하는 스터디 모임</h1>
+            </div>
+          </div>
         </Grid>
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', bgcolor: '#FAF6E9' }}>
           <Box
@@ -199,7 +207,7 @@ export default function SignInSide() {
                         </Typography>
                         <TextField
                           required
-                          id="outlined-required"
+                          id="find-name"
                           placeholder='이름'
                           sx={{
                             marginTop: "20px",
@@ -210,7 +218,7 @@ export default function SignInSide() {
                         />
                         <TextField
                           required
-                          id="outlined-required"
+                          id="find-email"
                           placeholder='이메일 주소'
                           sx={{
                             marginTop: "20px",
@@ -220,6 +228,7 @@ export default function SignInSide() {
                           }}
                         />
                         <Button
+                          onClick={FindId}
                           type="submit"
                           sx={{
                             width: "80px",
