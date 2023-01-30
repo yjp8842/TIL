@@ -107,21 +107,27 @@ export default function SignInSide() {
           }}
         > 
           <div className='inbox'>
-            <img src='images/mrmlogo.png' alt='logo' className='imgbox' />
+            <img src='images/logomrm.png' alt='logo' className='imgbox' />
             <div className='fontbox'>
               <h1 className='font'>마룸모</h1>
               <h1>마이 룸에서 하는 스터디 모임</h1>
             </div>
           </div>
         </Grid>
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', bgcolor: '#FAF6E9' }}>
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', bgcolor: '#FAF6E9' }}>
           <Box
             sx={{
               my: 8,
               mx: 4,
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center'
+              alignItems: 'center',
+              justifyContent: 'center',
+              bgcolor: '#FFFFFF',
+              height: '400px',
+              width: '550px',
+              borderRadius :'50px',
+              boxShadow: "5px 5px 4px rgba(0, 0, 0, 0.25)"
             }}
           >
             

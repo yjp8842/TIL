@@ -169,7 +169,7 @@ export default function SignUp() {
           }}
         >
           <div className='inbox'>
-            <img src='images/mrmlogo.png' alt='logo' className='imgbox' />
+            <img src='images/logomrm.png' alt='logo' className='imgbox' />
             <div className='fontbox'>
               <h1 className='font'>마룸모</h1>
               <h1>마이 룸에서 하는 스터디 모임</h1>
