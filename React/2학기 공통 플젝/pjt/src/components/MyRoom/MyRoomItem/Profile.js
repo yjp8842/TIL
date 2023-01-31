@@ -1,20 +1,20 @@
 import React from 'react';
 import { Box } from '@mui/system';
-// import { BiPencil } from 'react-icons/bi';
-// import PersonIcon from '@mui/icons-material/Person';
+import { BiPencil } from 'react-icons/bi';
+import PersonIcon from '@mui/icons-material/Person';
 
 import './Profile.css';
 import { InputSample } from './ProfileLogic';
 
 class Profile extends React.Component {
   render() {
-    // function onChange() {
-    //   const inputText = document.getElementById('input-text');
-    //   const inputSample = document.getElementById('input-sample');
-    //   // console.log(inputSample.classList.contains('display'))
-    //   inputSample.classList.remove('display');
-    //   inputText.classList.add('display');
-    // }
+    function onChange() {
+      const inputText = document.getElementById('input-text');
+      const inputSample = document.getElementById('input-sample');
+      // console.log(inputSample.classList.contains('display'))
+      inputSample.classList.remove('display');
+      inputText.classList.add('display');
+    }
 
     return (
       <Box
@@ -30,17 +30,17 @@ class Profile extends React.Component {
           // alignItems: "center",
           justifyContent: "center",
         }}>
-        {/* <div className='pencil'><BiPencil size='25' onClick={onChange} /></div>
+        <div className='pencil'><BiPencil size='25' onClick={onChange} /></div>
         <div className='inbox1'>
           <PersonIcon
             sx={{
               width: "120px",
               height: "120px",
             }}>
-          </PersonIcon> */}
+          </PersonIcon>
           {/* <h2>SSAFY</h2> */}
           {/* <div className='display' id='input-sample'> */}
-          <InputSample />
+            <InputSample />
           {/* </div> */}
           {/* <div className="update" id="input-text"> */}
             {/* <h3>SSAFY</h3> */}
@@ -49,7 +49,7 @@ class Profile extends React.Component {
             {/* <h3>{intro}</h3> */}
           {/* </div> */}
           {/* <h4>같이 취뽀하자</h4> */}
-        {/* </div> */}
+        </div>
       </Box>
     );
   }

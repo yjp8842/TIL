@@ -74,6 +74,7 @@ export function requestLogin() {
   })
   .catch((err)=>{
     console.log(err);
-    throw new Error(err);
+    // throw new Error(err);
+    alert('존재하지 않는 아이디이거나 비밀번호입니다.');
   });
 }

@@ -1,0 +1,40 @@
+npm install list
+
+###### MUI
+
+```sh
+npm install @emotion/react @emotion/styled
+```
+
+```sh
+// npm install @mui/icons-material
+```
+
+npm install @mui/material @mui/styled-engine-sc styled-components @mui/icons-material
+
+###### React Router
+
+```
+npm install react-router-dom
+```
+
+###### React Icons
+
+npm install react-icons --save
+
+###### React Calendar
+
+npm install react-calendar
+
+###### Moment js
+
+npm install moment
+
+###### APEXCHARTS
+
+npm install apexcharts --save
+
+
+###### Modal part
+npm install react-modal
+npm install react-datepicker --save

@@ -152,14 +152,6 @@ export default function SignUp() {
           xs={false}
           sm={4}
           md={7}
-          // sx={{
-          //   backgroundImage: 'url(https://source.unsplash.com/random)',
-          //   backgroundRepeat: 'no-repeat',
-          //   backgroundColor: (t) =>
-          //     t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-          //   backgroundSize: 'cover',
-          //   backgroundPosition: 'center',
-          // }}
           sx={{
             display: 'flex', 
             flexDirection: 'column', 
@@ -306,7 +298,6 @@ export default function SignUp() {
                       mb: 2, 
                       bgcolor: '#FFFFFF', 
                       color: '#000000', 
-                      fontFamily: "GangwonEdu_OTFBoldA", 
                       boxShadow: "5px 5px 4px rgba(0, 0, 0, 0.15)" 
                     }}
                   >
@@ -315,7 +306,7 @@ export default function SignUp() {
                   {/* <FormHelperTexts>{signUPError}</FormHelperTexts> */}
                   <Grid container justifyContent="flex-end">
                     <Grid item>
-                      <Link href="./" variant="body2" underline='hover'>
+                      <Link href="/" variant="body2" underline='hover'>
                         이미 가입하셨다면 로그인하세요
                       </Link>
                     </Grid>

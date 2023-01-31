@@ -92,7 +92,7 @@ export default function SignInSide() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid container component="main" sx={{ height: '100vh', fontFamily: "GangwonEdu_OTFBoldA" }}>
+      <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
         <Grid
           item
@@ -177,7 +177,6 @@ export default function SignInSide() {
                       ml: 2,
                       backgroundColor: '#FFFFFF', 
                       color: '#000000', 
-                      fontFamily: "GangwonEdu_OTFBoldA",
                       boxShadow: "5px 5px 4px rgba(0, 0, 0, 0.15)"
                     }}
                     onClick={() => {
@@ -205,7 +204,6 @@ export default function SignInSide() {
                           id="modal-modal-title"
                           sx={{
                             textAlign: "center",
-                            fontFamily: 'GangwonEdu_OTFBoldA',
                             fontSize: "30px",
                             color: '#FFFFFF'
                           }}
@@ -272,7 +270,6 @@ export default function SignInSide() {
                           id="modal-modal-title"
                           sx={{
                             textAlign: "center",
-                            fontFamily: 'GangwonEdu_OTFBoldA',
                             fontSize: "30px",
                             color: '#FFFFFF'
                           }}
