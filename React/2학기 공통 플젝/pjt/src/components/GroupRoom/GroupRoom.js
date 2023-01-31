@@ -8,9 +8,12 @@ import HomePage from '../MyRoom/MyRoomItem/PageIcon';
 import { Link } from 'react-router-dom';
 import Profile from '../MyRoom/MyRoomItem/Profile';
 import CalendarBox from '../MyRoom/MyRoomItem/Calendar';
-import HomeBtn from './GroupRoomItem/Home';
+import HomeBtn from './GroupRoomItem/HomeBtn';
 import ChatRoom from './GroupRoomItem/ChatRoom';
 import { NavItem } from './GroupRoomItem/Category';
+import TodoBox from './GroupRoomItem/TodoInGroup';
+import MemoBox from './GroupRoomItem/MemoInGroup';
+import TimeTableBox from './GroupRoomItem/TimeTableInGroup';
 
 import './GroupRoomItem/Category.css';
 // import classes from '../rooms/myroom.css';
@@ -78,7 +81,7 @@ const GroupRoom = () => {
         }}>
         <Box
           sx={{
-            width: "15vw",
+            width: "288px",
             height: "98vh",
             paddingY: "1vh",
             display: "flex",
@@ -93,14 +96,12 @@ const GroupRoom = () => {
           
 
           <NavItem>
-            {/** 하위에 있는 메뉴가 열립니다. **/}
-            {/* <ul> */}
+            {/* 하위 메뉴 열림 */}
             <div className='category-box'>
-              <li>게시판</li>  
+              <Link to={`/group/board`}><li>게시판</li></Link>  
               <li>화상회의</li>  
-              <li>Q&A</li>   
+              <Link to={`/group/qna`}><li>Q&A</li></Link>   
             </div>
-            {/* </ul> */}
           </NavItem>
 
         </Box>
@@ -112,95 +113,16 @@ const GroupRoom = () => {
             alignItems: 'center',
             // justifyContent: 'center'
           }}>
-          <Box 
-            sx={{
-              display: 'flex',
-              justifyContent: 'space-evenly',
-              width: '1000px'
-            }}>
-            <Box
-                sx={{
-                  width: "500px",
-                  height: "250px",
-                  marginTop: "20px",
-                  paddingY: '20px',
-                  borderRadius: "30px",
-                  backgroundColor: "#FFFFFF",
-                  boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
-                  display: 'flex',
-                  justifyContent: 'center'
-              }}>
-                <h3>할 일</h3>
-              </Box>
-            <Box 
-              sx={{
-                width: '400px',
-                height: '250px',
-                marginTop: "20px",
-                paddingY: '20px',
-                borderRadius: "30px",
-                backgroundColor: "#FFFFFF",
-                boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
-                display: 'flex',
-                justifyContent: 'center'
-            }}>
-              <h3>완료한 일</h3>
-            </Box>
-          </Box>
 
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'space-evenly',
-              width: '1000px'
-            }}>
-            <Box
-              sx={{
-                width: "450px",
-                height: "250px",
-                marginTop: "20px",
-                paddingY: '20px',
-                borderRadius: "30px",
-                backgroundColor: "#FFFFFF",
-                boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
-                display: 'flex',
-                justifyContent: 'center'
-              }}>
-                <h3>My MEMO</h3>
-            </Box>
-            <Box
-              sx={{
-                width: "450px",
-                height: "250px",
-                marginTop: "20px",
-                paddingY: '20px',
-                borderRadius: "30px",
-                backgroundColor: "#FFFFFF",
-                boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
-                display: 'flex',
-                justifyContent: 'center'
-              }}>
-                <h3>Group MEMO</h3>
-            </Box>
-          </Box>
-
-          <Box
-              sx={{
-                width: "950px",
-                height: "250px",
-                marginTop: "20px",
-                paddingY: '20px',
-                borderRadius: "30px",
-                backgroundColor: "#FFFFFF",
-                boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
-                display: 'flex',
-                justifyContent: 'center'
-            }} />
+          <TodoBox />
+          <MemoBox />
+          <TimeTableBox />
+          
         </Box>
 
         <Box
           sx={{
-            width: "15vw",
+            width: "288px",
             height: "98vh",
             paddingY: "1vh",
             display: "flex",
@@ -236,7 +158,10 @@ const GroupRoom = () => {
               boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              ':hover': {
+                cursor: 'pointer'
+              }
             }}>
               <h2>탈퇴하기</h2>
           </Box>

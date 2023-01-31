@@ -16,7 +16,7 @@ import './GroupRoomItem/Category.css';
 // import classes from '../rooms/myroom.css';
 // import mealsImage from '../../assets/meals.jpg';
 
-const GroupChat = () => {
+const GroupBoard = () => {
   return (
     <Grid container>
       <Box
@@ -96,7 +96,7 @@ const GroupChat = () => {
             {/** 하위에 있는 메뉴가 열립니다. **/}
             {/* <ul> */}
             <div className='category-box'>
-              <Link to={`/group/board`}><li>게시판</li></Link>
+              <Link to={`/group/board`}><li>게시판</li></Link> 
               <li>화상회의</li>  
               <Link to={`/group/qna`}><li>Q&A</li></Link>   
             </div>
@@ -124,7 +124,7 @@ const GroupChat = () => {
           }} />
 
           <Box sx={{mt:5}}>
-            <h1>채팅방</h1>
+            <h1>게시판</h1>
           </Box>
         </Box>
 
@@ -176,4 +176,4 @@ const GroupChat = () => {
   );
 };
 
-export default GroupChat;
+export default GroupBoard;

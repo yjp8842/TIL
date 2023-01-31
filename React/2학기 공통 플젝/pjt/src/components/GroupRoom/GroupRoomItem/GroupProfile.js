@@ -3,10 +3,10 @@ import { Box } from '@mui/system';
 // import { BiPencil } from 'react-icons/bi';
 // import PersonIcon from '@mui/icons-material/Person';
 
-import './Profile.css';
-import { InputSample } from './ProfileLogic';
+import './GroupProfile.css';
+import { InputSample } from './GroupProfileLogic';
 
-class Profile extends React.Component {
+class GroupProfile extends React.Component {
   render() {
     // function onChange() {
     //   const inputText = document.getElementById('input-text');
@@ -30,29 +30,10 @@ class Profile extends React.Component {
           // alignItems: "center",
           justifyContent: "center",
         }}>
-        {/* <div className='pencil'><BiPencil size='25' onClick={onChange} /></div>
-        <div className='inbox1'>
-          <PersonIcon
-            sx={{
-              width: "120px",
-              height: "120px",
-            }}>
-          </PersonIcon> */}
-          {/* <h2>SSAFY</h2> */}
-          {/* <div className='display' id='input-sample'> */}
           <InputSample />
-          {/* </div> */}
-          {/* <div className="update" id="input-text"> */}
-            {/* <h3>SSAFY</h3> */}
-            {/* <h3>같이 취뽀하자!</h3> */}
-            {/* <h3>{name}</h3> */}
-            {/* <h3>{intro}</h3> */}
-          {/* </div> */}
-          {/* <h4>같이 취뽀하자</h4> */}
-        {/* </div> */}
       </Box>
     );
   }
 }
 
-export default Profile;
+export default GroupProfile;

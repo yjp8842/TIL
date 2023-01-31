@@ -18,6 +18,9 @@ export function NavItem(props) {
           borderRadius: "20px",
           backgroundColor: "#FFFFFF",
           boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
+          ':hover': {
+            cursor: 'pointer'
+          }
       }}>
         <h2>React 공부방</h2>
       </Box>

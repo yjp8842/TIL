@@ -5,6 +5,8 @@ import GroupRoom from './components/GroupRoom/GroupRoom';
 import SignInSide from './components/Login/SignIn';
 import SignUp from './components/Login/SignUp';
 import GroupChat from './components/GroupRoom/GroupChat';
+import GroupBoard from './components/GroupRoom/Board';
+import GroupQnA from './components/GroupRoom/QnA';
 // import { Box } from '@mui/system';
 // import { Fragment } from 'react';
 
@@ -17,6 +19,8 @@ function App() {
         <Route path="/myroom" element={<MyRoom />} />
         <Route path="/group" element={<GroupRoom />} />
         <Route path="/group/chat" element={<GroupChat />} />
+        <Route path="/group/board" element={<GroupBoard />} />
+        <Route path="/group/qna" element={<GroupQnA />} />
       </Routes>
     </BrowserRouter>
   );
