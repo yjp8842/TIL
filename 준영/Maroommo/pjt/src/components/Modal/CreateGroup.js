@@ -66,6 +66,7 @@ const Contents = styled.div`
     width: 300px;
   }
 `;
+
 const Button = styled.button`
   font-size: 14px;
   padding: 10px 20px;

@@ -11,8 +11,6 @@ export default function TodoBox () {
     }),
   }))
 
-
-
   return (
     <div
     style={{
@@ -27,8 +25,7 @@ export default function TodoBox () {
     }}
     ref={drag}
     >
-    Todo2
+      Todo2
     </div>
-
   )
 }

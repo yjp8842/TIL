@@ -20,7 +20,7 @@ const style1= {
   width: "450px",
   height: "400px",
   bgcolor: '#4A4A4A',
-  borderRadius: "50px",
+  borderRadius: "30px",
   boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
   p: 3,
   display: "flex",
@@ -37,7 +37,7 @@ const style2 = {
   width: "450px",
   height: "480px",
   bgcolor: '#4A4A4A',
-  borderRadius: "50px",
+  borderRadius: "30px",
   boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
   p: 3,
   display: "flex",
@@ -66,7 +66,6 @@ export default function SignInSide() {
     if (!idCheck.value) {
       setIdError('아이디를 입력해주세요');
       idCheck.focus();
-      e.preventDefault();
       return;
     } else {
       setIdError('');
@@ -75,7 +74,6 @@ export default function SignInSide() {
     if (!passwordCheck.value) {
       setPasswordError('비밀번호를 입력해주세요');
       passwordCheck.focus();
-      e.preventDefault();
       return;
     } else {
       setPasswordError('');
@@ -110,7 +108,7 @@ export default function SignInSide() {
           <div className='inbox'>
             <img src='images/logomrm.png' alt='logo' className='imgbox' />
             <div className='fontbox'>
-              <h1 className='font'>마룸모</h1>
+              <h1 className='main-font'>마룸모</h1>
               <h1>마이 룸에서 하는 스터디 모임</h1>
             </div>
           </div>
@@ -205,7 +203,6 @@ export default function SignInSide() {
                           id="modal-modal-title"
                           sx={{
                             textAlign: "center",
-                            fontFamily: 'GangwonEdu_OTFBoldA',
                             fontSize: "30px",
                             color: '#FFFFFF'
                           }}
@@ -272,7 +269,6 @@ export default function SignInSide() {
                           id="modal-modal-title"
                           sx={{
                             textAlign: "center",
-                            fontFamily: 'GangwonEdu_OTFBoldA',
                             fontSize: "30px",
                             color: '#FFFFFF'
                           }}

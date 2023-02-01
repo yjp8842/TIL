@@ -20,11 +20,7 @@ export default function TodoList () {
     }),
   )
 
-
-
   return (
-
-
     <DndProvider backend={HTML5Backend}>
       <Box
         sx={{

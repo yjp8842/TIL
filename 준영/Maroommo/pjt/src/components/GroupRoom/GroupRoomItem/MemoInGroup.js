@@ -13,7 +13,7 @@ class MemoBox extends React.Component {
         <Box
           sx={{
             width: "450px",
-            height: "250px",
+            height: "240px",
             marginTop: "20px",
             paddingY: '20px',
             borderRadius: "30px",
@@ -27,7 +27,7 @@ class MemoBox extends React.Component {
         <Box
           sx={{
             width: "450px",
-            height: "250px",
+            height: "240px",
             marginTop: "20px",
             paddingY: '20px',
             borderRadius: "30px",

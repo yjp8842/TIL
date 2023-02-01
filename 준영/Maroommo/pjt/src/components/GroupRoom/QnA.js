@@ -6,7 +6,7 @@ import { Box } from '@mui/system';
 
 import HomePage from '../MyRoom/MyRoomItem/PageIcon';
 import { Link } from 'react-router-dom';
-import Profile from '../MyRoom/MyRoomItem/Profile';
+import GroupProfile from './GroupRoomItem/GroupProfile';
 import CalendarBox from '../MyRoom/MyRoomItem/Calendar';
 import HomeBtn from './GroupRoomItem/HomeBtn';
 import ChatRoom from './GroupRoomItem/ChatRoom';
@@ -87,7 +87,7 @@ const GroupQnA = () => {
             // justifyContent: "center",
             backgroundColor: "#ebe5d1",
           }}>
-          <Profile />
+          <GroupProfile />
           <Link to={`/group`}><HomeBtn /></Link>
           <Link to={`/group/chat`}><ChatRoom /></Link>
           
@@ -110,18 +110,6 @@ const GroupQnA = () => {
             display: 'flex',
             flexDirection: 'column'
           }}>
-          <Box
-            sx={{
-              width: "950px",
-              height: "250px",
-              marginTop: "20px",
-              paddingY: '20px',
-              borderRadius: "30px",
-              backgroundColor: "#FFFFFF",
-              boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
-              display: 'flex',
-              justifyContent: 'center'
-          }} />
 
           <Box sx={{mt:5}}>
             <h1>Q&A</h1>

@@ -72,8 +72,8 @@ function Modal({ onClose }) {
             />
           </InBox>
 
-          <CButton onClick={handleClose}>뒤로</CButton>
-          <CButton onClick={handleClose}>참가하기</CButton>
+          <CButton onClick={handleClose}>취소</CButton>
+          <CButton onClick={handleClose}>참가</CButton>
         </Contents>
       </ModalWrap>
     </Overlay>
@@ -99,13 +99,13 @@ const Overlay = styled.div`
 
 const ModalWrap = styled.div`
   position: absolute;
-  width: 700px;
-  height: 600px;
+  width: 650px;
+  height: 550px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 50px;
+  border-radius: 30px;
   background-color: #4A4A4A;
   top: 50%;
   left: 50%;
@@ -130,8 +130,8 @@ const CButton = styled.button`
   // float : right;
   width: 110px;
   height: 60px;
-  margin: 30px;
-  margin-top : 70px;
+  margin-top : 50px;
+  margin-left: 20px;
   font-size: 20px;
   border: none;
   background-color: #ffffff;
@@ -152,22 +152,21 @@ const Label = styled.div`
 `;
 
 const Input = styled.input`
-    width: 450px;
-    height: 50px;
-    // width: 100%;
-    outline: none;
-    border-radius: 15px;
-    line-height: 2.5rem;
-    font-size: 20px;
-    font-family: 'GangwonEdu_OTFBoldA';
-    padding-left: 1rem;
-    padding-right: 0.5rem;
+  width: 450px;
+  height: 50px;
+  // width: 100%;
+  outline: none;
+  border-radius: 15px;
+  line-height: 2.5rem;
+  font-size: 20px;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
 `;
 
 const Wrapper = styled.div`
-    & + & {
-        margin-top: 1rem;
-    }
+  & + & {
+    margin-top: 1rem;
+  }
 `;
 
 const InputWithLabel = ({label, ...rest}) => (

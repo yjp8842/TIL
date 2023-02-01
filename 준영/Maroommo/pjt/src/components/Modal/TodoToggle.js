@@ -12,36 +12,36 @@ export default function TodoToggle() {
 
   return (
     <ToggleButtonGroup
-        theme={theme}
-        color="primary"
-        value={alignment}
-        exclusive
-        onChange={handleChange}
-        aria-label="Platform"
-        sx={{
-          width: '100%',
-          marginY: '30px'
-        }}
+      theme={theme}
+      color="primary"
+      value={alignment}
+      exclusive
+      onChange={handleChange}
+      aria-label="Platform"
+      sx={{
+        width: '100%',
+        marginY: '30px'
+      }}
     >
       <ToggleButton value="todo" theme={theme} sx={{width: '80px', fontSize: '18px'}}>할 일</ToggleButton>
-      <ToggleButton value="schedule" theme={theme} sx={{width: '80px', fontSize: '18px'}}> 일정</ToggleButton>
+      <ToggleButton value="schedule" theme={theme} sx={{width: '80px', fontSize: '18px'}}>일정</ToggleButton>
     </ToggleButtonGroup>
   );
 }
 
 const theme = createTheme({
-    palette: {
-      primary: {
-        light: '#ffffff',
-        main: '#fffdf6',
-        dark: '#fffdf6',
-        contrastText: '#ffffff',
-      },
-      secondary: {
-        light: '#ffffff',
-        main: '#ffffff',
-        dark: '#ffffff',
-        contrastText: '#ffffff',
-      },
+  palette: {
+    primary: {
+      light: '#ffffff',
+      main: '#fffdf6',
+      dark: '#fffdf6',
+      contrastText: '#ffffff',
     },
-  });
+    secondary: {
+      light: '#ffffff',
+      main: '#ffffff',
+      dark: '#ffffff',
+      contrastText: '#ffffff',
+    },
+  },
+});

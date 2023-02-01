@@ -17,40 +17,38 @@ export default function CalendarApp() {
     '2023-01-22',
     '2023-01-23',
   ];
+
   const marks_blue = [
     '2023-01-26',
     '2023-01-27',
-  ]
+  ];
 
   return (
-    <div>
-      <Calendar 
-        onChange={onChange} value={value} locale='ko-KR'
-        formatDay={(locale, date) => moment(date).format('DD')}
-        className='mx-auto w-full text-sm border-b'
-        selectRange={false}
-        tileContent={({date, view}) => {
-          if (marks_red.find((x) => x === moment(date).format('YYYY-MM-DD'))) {
-            return (
-              <>
-                <div className='flex justify-center items-center absoluteDiv'>
-                  <div className='red_dot'></div>
-                </div>
-              </>
-            )
-          }
-          if (marks_blue.find((x) => x === moment(date).format('YYYY-MM-DD'))) {
-            return (
-              <>
-                <div className='flex justify-center items-center absoluteDiv'>
-                  <div className='blue_dot'></div>
-                </div>
-              </>
-            )
-          }
-        }}
-      />
-
-    </div>
+    <Calendar
+      onChange={onChange} value={value} locale='ko-KR'
+      formatDay={(locale, date) => moment(date).format('DD')}
+      className='mx-auto w-full text-sm border-b'
+      selectRange={false}
+      tileContent={({date, view}) => {
+        if (marks_red.find((x) => x === moment(date).format('YYYY-MM-DD'))) {
+          return (
+            <>
+              <div className='flex justify-center items-center absoluteDiv'>
+                <div className='red_dot'></div>
+              </div>
+            </>
+          )
+        }
+        if (marks_blue.find((x) => x === moment(date).format('YYYY-MM-DD'))) {
+          return (
+            <>
+              <div className='flex justify-center items-center absoluteDiv'>
+                <div className='blue_dot'></div>
+              </div>
+            </>
+          )
+        }
+      }}
+    />
   );
 }

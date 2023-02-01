@@ -7,7 +7,7 @@ class TimeTableBox extends React.Component {
       <Box
         sx={{
           width: "950px",
-          height: "250px",
+          height: "270px",
           marginTop: "20px",
           paddingY: '20px',
           borderRadius: "30px",

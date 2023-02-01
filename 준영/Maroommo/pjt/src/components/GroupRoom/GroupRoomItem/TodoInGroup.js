@@ -12,8 +12,8 @@ class TodoBox extends React.Component {
         }}>
         <Box
           sx={{
-            width: "500px",
-            height: "250px",
+            width: "450px",
+            height: "240px",
             marginTop: "20px",
             paddingY: '20px',
             borderRadius: "30px",
@@ -26,8 +26,8 @@ class TodoBox extends React.Component {
         </Box>
         <Box 
           sx={{
-            width: '400px',
-            height: '250px',
+            width: '450px',
+            height: '240px',
             marginTop: "20px",
             paddingY: '20px',
             borderRadius: "30px",

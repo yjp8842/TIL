@@ -16,13 +16,14 @@ export default function CalendarMini() {
     '2023-01-22',
     '2023-01-23',
   ];
+
   const marks_blue = [
     '2023-01-26',
     '2023-01-27',
   ]
 
   return (
-    <div onclick>
+    <div className='mini'>
       <Calendar 
         onChange={onChange} value={value} locale='ko-KR'
         formatDay={(locale, date) => moment(date).format('DD')}

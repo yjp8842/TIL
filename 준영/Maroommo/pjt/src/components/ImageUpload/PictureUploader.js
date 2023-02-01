@@ -2,13 +2,13 @@ import {useEffect, useState} from 'react';
 import "./uploader.css";
 import {Button} from "@mui/material";
 import axios from 'axios';
-import PersonIcon from '@mui/icons-material/Person';
+// import PersonIcon from '@mui/icons-material/Person';
 
 const PictureUploader = () => {
 
   const [image, setImage] = useState({
     image_file: "",
-    preview_URL: PersonIcon,
+    preview_URL: 'images/user.jpg',
   });
 
   let inputRef;
@@ -33,7 +33,7 @@ const PictureUploader = () => {
     URL.revokeObjectURL(image.preview_URL);
     setImage({
       image_file: "",
-      preview_URL: "img/default_image.png",
+      preview_URL: "images/user.jpg",
     });
   }
 
@@ -42,7 +42,7 @@ const PictureUploader = () => {
     return () => {
       URL.revokeObjectURL(image.preview_URL)
     }
-  }, [])
+  })
 
   const sendImageToServer = async () => {
     if (image.image_file) {
@@ -52,7 +52,7 @@ const PictureUploader = () => {
       alert("서버에 등록이 완료되었습니다!");
       setImage({
         image_file: "",
-        preview_URL: "img/default_image.png",
+        preview_URL: "images/user.jpg",
       });
     } else {
       alert("사진을 등록하세요!")

@@ -171,13 +171,13 @@ export default function SignUp() {
           <div className='inbox'>
             <img src='images/logomrm.png' alt='logo' className='imgbox' />
             <div className='fontbox'>
-              <h1 className='font'>마룸모</h1>
+              <h1 className='main-font'>마룸모</h1>
               <h1>마이 룸에서 하는 스터디 모임</h1>
             </div>
           </div>
         </Grid>
         
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} backgroundColor='#FAF6E9' square>
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', bgcolor: '#FAF6E9' }}>
 
           <Box
             sx={{
@@ -192,8 +192,8 @@ export default function SignUp() {
 
             <h1>회원가입</h1>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-              <Grid container spacing={2} justifyContent='center'>
-                <Grid item xs={8}>
+              <Grid container spacing={2} sx={{display: "flex", justifyContent: "center"}}>
+                <Grid item xs={4}>
                   <TextField
                     margin='normal'
                     autoComplete="given-name"
@@ -208,8 +208,26 @@ export default function SignUp() {
                       bgcolor: '#FFFFFF'
                     }}
                   />
+                  <FormHelperTexts>{nameError}</FormHelperTexts>
+                </Grid>
+                {/* 닉네임 넣기 */}
+                <Grid item xs={4}>
+                  <TextField
+                    margin='normal'
+                    autoComplete="닉네임"
+                    name="nickname"
+                    required
+                    fullWidth
+                    id="nickname"
+                    label="닉네임"
+                    error={nicknameError !== '' || false}
+                    sx={{
+                      bgcolor: '#FFFFFF'
+                    }}
+                  />
+                  <FormHelperTexts>{nicknameError}</FormHelperTexts>
                 </Grid>  
-                <FormHelperTexts>{nameError}</FormHelperTexts>
+                {/* 닉네임 넣기 */}
                 <Grid item xs={8}>
                   <TextField
                     margin='normal'
@@ -224,10 +242,10 @@ export default function SignUp() {
                       bgcolor: '#FFFFFF'
                     }}
                   />
-                  {/* 닉네임 넣기 */}
+                  <FormHelperTexts>{idError}</FormHelperTexts>  
                 </Grid>  
-                <FormHelperTexts>{idError}</FormHelperTexts>
-                <Grid item xs={8}>
+                {/* 닉네임 넣기 */}
+                {/* <Grid item xs={8}>
                   <TextField
                     margin='normal'
                     autoComplete="닉네임"
@@ -236,15 +254,14 @@ export default function SignUp() {
                     fullWidth
                     id="nickname"
                     label="닉네임"
-                    
                     error={nicknameError !== '' || false}
                     sx={{
                       bgcolor: '#FFFFFF'
                     }}
                   />
-                  {/* 닉네임 넣기 */}
-                </Grid>  
-                <FormHelperTexts>{idError}</FormHelperTexts>
+                  <FormHelperTexts>{idError}</FormHelperTexts>
+                </Grid>   */}
+                {/* 닉네임 넣기 */}
                 <Grid item xs={8}>
                   <TextField
                     margin='normal'
@@ -259,8 +276,8 @@ export default function SignUp() {
                       bgcolor: '#FFFFFF'
                     }}
                   />
+                  <FormHelperTexts>{emailError}</FormHelperTexts>
                 </Grid>  
-                <FormHelperTexts>{emailError}</FormHelperTexts>
                 <Grid item xs={8}>
                   <TextField
                     margin='normal'
@@ -276,8 +293,8 @@ export default function SignUp() {
                       bgcolor: '#FFFFFF'
                     }}
                   />
+                  <FormHelperTexts>{passwordState}</FormHelperTexts>
                 </Grid>
-                <FormHelperTexts>{passwordState}</FormHelperTexts>
                 <Grid item xs={8}>
                   <TextField
                     margin='normal'
@@ -293,8 +310,8 @@ export default function SignUp() {
                       bgcolor: '#FFFFFF'
                     }}
                   />
+                  <FormHelperTexts>{passwordError}</FormHelperTexts>
                 </Grid>
-                <FormHelperTexts>{passwordError}</FormHelperTexts>
                 <Grid item xs={8}>
                   <Button
                     onClick={postSignUpData}
