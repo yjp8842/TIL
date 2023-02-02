@@ -32,7 +32,7 @@ const MyRoom = () => {
     <Grid container>
       <Box
         sx={{
-          width: "5vw",
+          width: "6rem",
           height: "100vh",
           display: "flex",
           flexDirection: "column",
@@ -180,13 +180,18 @@ const MyRoom = () => {
 };
 
 const Button = styled.button`
-  font-size: 40px;
-  padding: 10px 20px;
+  font-size: 30px;
+  width: 4rem;
+  height: 4rem;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  // padding: 10px 20px;
   border: none;
   background-color: #ffffff;
-  border-radius: 10px;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.35);
+  border-radius: 15px;
   color: black;
-  font-style: italic;
+  // font-style: italic;
   font-weight: 200;
   cursor: pointer;
   &:hover {
@@ -196,7 +201,7 @@ const Button = styled.button`
 
 const AppWrap = styled.div`
   text-align: center;
-  margin: 50px auto;
+  // margin: 50px auto;
 `;
 
 export default MyRoom;

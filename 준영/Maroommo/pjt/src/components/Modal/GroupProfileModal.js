@@ -4,11 +4,23 @@ import React from "react";
 import styled from "styled-components";
 import PictureUploader from "../ImageUpload/PictureUploader";
 
-function Modal({ onClose }) {
+function GroupProfileModal({ onClose }) {
 
   const handleClose = () => {
     onClose?.();
   };
+
+  const pushData = () => {
+    let groupname = document.getElementById('groupname').value;
+    let groupintro = document.getElementById('groupintro').value;
+    if (groupname && groupintro) {
+      localStorage.setItem('groupname', groupname);
+      localStorage.setItem('groupintro', groupintro);
+    }
+  }
+
+  let nameValue = localStorage.getItem('groupname');
+  let introValue = localStorage.getItem('groupintro');
 
   return (
     <div>
@@ -16,20 +28,18 @@ function Modal({ onClose }) {
         <ModalWrap>
           <Contents>
             <h1>프로필 수정하기</h1>
-            <h6 id="changeName">ss</h6>
-            <h6 id="changeIntro">ss</h6>
   
-            <ProfilePicture>
-              <PictureUploader />
-            </ProfilePicture>
+            <form>
+              <ProfilePicture>
+                <PictureUploader />
+              </ProfilePicture>
             
-            <form id="input-form">
-              <input label="| 사용자명" id="username" placeholder="김싸피" type="input" />
-              <input label="| 한줄소개" id="introduction" placeholder="같이 취뽀하자!" type="input" />
+              <InputWithLabel label="| 사용자명" id="groupname" placeholder={nameValue} />
+              <InputWithLabel label="| 한줄소개" id="groupintro" placeholder={introValue} />
+            
+              <CButton onClick={handleClose}>취소</CButton>
+              <CButton type="submit" onClick={pushData}>수정</CButton>
             </form>
-            
-            <CButton onClick={handleClose}>취소</CButton>
-            <CButton>수정</CButton>
           </Contents>
         </ModalWrap>
       </Overlay>
@@ -37,38 +47,38 @@ function Modal({ onClose }) {
   );
 }
 
-// const Label = styled.div` 
-//   // float: left;
-//   text-align: left;
-//   font-size: 20px;
-//   color: white;
-//   margin-bottom: 0.5rem;
-// `;
+const Label = styled.div` 
+  // float: left;
+  text-align: left;
+  font-size: 20px;
+  color: white;
+  margin-bottom: 0.5rem;
+`;
 
-// const Input = styled.input`
-//   width: 450px;
-//   height: 50px;
-//   // width: 100%;
-//   outline: none;
-//   border-radius: 15px;
-//   line-height: 2.5rem;
-//   font-size: 20px;
-//   padding-left: 1rem;
-//   padding-right: 0.5rem;
-// `;
+const Input = styled.input`
+  width: 450px;
+  height: 50px;
+  // width: 100%;
+  outline: none;
+  border-radius: 15px;
+  line-height: 2.5rem;
+  font-size: 20px;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+`;
 
-// const Wrapper = styled.div`
-//   & + & {
-//     margin-top: 1rem;
-//   }
-// `;
+const Wrapper = styled.div`
+  & + & {
+    margin-top: 1rem;
+  }
+`;
 
-// const InputWithLabel = ({label, ...rest}) => (
-//   <Wrapper>
-//     <Label>{label}</Label>
-//     <Input {...rest}/>
-//   </Wrapper>
-// );
+const InputWithLabel = ({label, ...rest}) => (
+  <Wrapper>
+    <Label>{label}</Label>
+    <Input {...rest}/>
+  </Wrapper>
+);
 
 const ProfilePicture = styled.div`
   margin: 30px;
@@ -131,4 +141,4 @@ const CButton = styled.button`
   }
 `;
 
-export default Modal;
+export default GroupProfileModal;

@@ -1,63 +1,65 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 // import Box from '@mui/material/Box';
+import JoinRoomModal from "./JoinGroup";
+import CreateRoomModal from "./CreateGroup";
 
-function JoinRoomModal({ onClose }) {
-  const handleClose = () => {
-    onClose?.();
-  };
+// function JoinRoomModal({ onClose }) {
+//   const handleClose = () => {
+//     onClose?.();
+//   };
 
-  return (
-    <Overlay>
-      <ModalWrap>
-        <Contents>
-          <h1>마룸모 참가하기</h1>
-          <InputWithLabel label="| 초대링크" name="URL" placeholder="maroommo.com/ssafyA406" type="URL"/>
-          <InputWithLabel label="| 비밀번호" name="password" placeholder="비밀번호" type="password"/>
+//   return (
+//     <Overlay>
+//       <ModalWrap>
+//         <Contents>
+//           <h1>마룸모 참가하기</h1>
+//           <InputWithLabel label="| 초대링크" name="URL" placeholder="maroommo.com/ssafyA406" type="URL"/>
+//           <InputWithLabel label="| 비밀번호" name="password" placeholder="비밀번호" type="password"/>
 
-          <div>
-            <CButton onClick={handleClose}>뒤로</CButton>
-            <CButton onClick={handleClose}>참가하기</CButton>
-          </div>
-        </Contents>
-      </ModalWrap>
-    </Overlay>
-  );
-}
+//           <div>
+//             <CButton onClick={handleClose}>뒤로</CButton>
+//             <CButton onClick={handleClose}>참가하기</CButton>
+//           </div>
+//         </Contents>
+//       </ModalWrap>
+//     </Overlay>
+//   );
+// }
 
-function CreateRoomModal({ onClose }) {
-  const handleClose = () => {
-    onClose?.();
-  };
+// function CreateRoomModal({ onClose }) {
+//   const handleClose = () => {
+//     onClose?.();
+//   };
 
-  return (
-    <Overlay>
-      <ModalWrap>
-        <Contents>
-          <h1>마룸모 생성하기</h1>
+//   return (
+//     <Overlay>
+//       <ModalWrap>
+//         <Contents>
+//           <h1>마룸모 생성하기</h1>
 
-          <InputWithLabel label="| 그룹명" name="roomname" placeholder="React 기초반" type="roomname"/>
-          <InputWithLabel label="| 비밀번호" name="password" placeholder="***********" type="password"/>
-          <InputWithLabel label="| 한줄소개" name="introduction" placeholder="React를 시작하는 사람들의 모임입니다. " type="introduction"/>
+//           <InputWithLabel label="| 그룹명" name="roomname" placeholder="React 기초반" type="roomname"/>
+//           <InputWithLabel label="| 비밀번호" name="password" placeholder="***********" type="password"/>
+//           <InputWithLabel label="| 한줄소개" name="introduction" placeholder="React를 시작하는 사람들의 모임입니다. " type="introduction"/>
 
-          <div>
-            <CButton onClick={handleClose}>뒤로</CButton>
-            <CButton onClick={handleClose}>생성하기</CButton>
-          </div>
-        </Contents>
-      </ModalWrap>
-    </Overlay>
-  );
-}
+//           <div>
+//             <CButton onClick={handleClose}>뒤로</CButton>
+//             <CButton onClick={handleClose}>생성하기</CButton>
+//           </div>
+//         </Contents>
+//       </ModalWrap>
+//     </Overlay>
+//   );
+// }
 
 export default function RoomModal({ onClose }) {
   const handleClose = () => {
     onClose?.();
   };
   
-  const [CreateroomisOpen, setIsOpen1] = useState(false);
-
-  const [JoinroomisOpen, setIsOpen2] = useState(false);
+  const [JoinroomisOpen, setIsOpen1] = useState(false);
+  
+  const [CreateroomisOpen, setIsOpen2] = useState(false);
 
   const onClickButton1 = () => {
     setIsOpen1(true);
@@ -74,16 +76,16 @@ export default function RoomModal({ onClose }) {
           <h1>마룸모 시작하기</h1>
 
           <Button onClick={onClickButton1}>그룹 참가하기 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ▶</Button>
-          {CreateroomisOpen && (<JoinRoomModal
-            open={CreateroomisOpen}
+          {JoinroomisOpen && (<JoinRoomModal
+            open={JoinroomisOpen}
             onClose={() => {
               setIsOpen1(false);
             }}
           />)}
 
           <Button onClick={onClickButton2}>그룹 생성하기 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ▶</Button>
-          {JoinroomisOpen && (<CreateRoomModal
-            open={JoinroomisOpen}
+          {CreateroomisOpen && (<CreateRoomModal
+            open={CreateroomisOpen}
             onClose={() => {
               setIsOpen2(false);
             }}
@@ -95,39 +97,6 @@ export default function RoomModal({ onClose }) {
     </Overlay>
   );
 }
-
-const Label = styled.div` 
-  // float: left;
-  text-align: left;
-  font-size: 20px;
-  color: white;
-  margin-bottom: 0.5rem;
-`;
-
-const Input = styled.input`
-  width: 350px;
-  height: 60px;
-  outline: none;
-  border-radius: 15px;
-  // line-height: 2.5rem;
-  font-size: 20px;
-  padding-left: 1rem;
-  padding-right: 0.5rem;
-`;
-
-const Wrapper = styled.div`
-    & + & {
-        margin-top: 1rem;
-    }
-`;
-
-const InputWithLabel = ({label, ...rest}) => (
-  <Wrapper>
-    <Label>{label}</Label>
-    <Input {...rest}/>
-  </Wrapper>
-);
-
 
 const Button = styled.button`
   width: 400px;
@@ -158,8 +127,11 @@ const Overlay = styled.div`
 
 const ModalWrap = styled.div`
   position: absolute;
-  width: 600px;
-  height: 550px;
+  width: 570px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50px;
   background-color: #4A4A4A;
   top: 50%;
@@ -176,6 +148,7 @@ const Contents = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: 50px;
   h1 {
     color: white;
     font-size: 40px;
@@ -188,7 +161,8 @@ const CButton = styled.button`
   width: 110px;
   height: 60px;
   font-size: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
+  // margin-left: 20px;
   background-color: #ffffff;
   border-radius: 15px;
   box-Shadow: 5px 5px 8px;

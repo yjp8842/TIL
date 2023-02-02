@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box } from '@mui/system';
 import styled from "styled-components";
-import ProfileModal from "../../Modal/ProfileModal";
+import UserProfileModal from '../../Modal/UserProfileModal';
 // import PersonIcon from '@mui/icons-material/Person';
 import EditIcon from '@mui/icons-material/Edit';
 
@@ -14,6 +14,9 @@ const Profile = () => {
   const onClickButton = () => {
     setIsOpen(true);
   };
+
+  let getUserName = localStorage.getItem('username');
+  let getUserIntro = localStorage.getItem('userintro');
 
   return (
     <Box
@@ -38,7 +41,7 @@ const Profile = () => {
             }}>
           </EditIcon>
         </ProfileButton>
-        {isOpen && (<ProfileModal
+        {isOpen && (<UserProfileModal
           open={isOpen}
           onClose={() => {
             setIsOpen(false);
@@ -53,8 +56,8 @@ const Profile = () => {
           }}>
         </PersonIcon> */}
         <img src='images/user.png' alt="user" className='user-image' />
-        <h2>SSAFY</h2>
-        <h4>같이 취뽀하자</h4>
+        <h2>{getUserName}</h2>
+        <h4>{getUserIntro}</h4>
       </div>
     </Box>
   );
@@ -67,7 +70,7 @@ const ProfileButton = styled.button`
   margin-right: 10px;
   width: 35px;
   height: 35px;
-  border-radius: 10px;
+  border-radius: 20px;
   border: none;
   color: black;
   cursor: pointer;

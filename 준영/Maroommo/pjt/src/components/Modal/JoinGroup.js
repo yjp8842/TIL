@@ -1,28 +1,82 @@
 import React from "react";
 import styled from "styled-components";
-import image from "../assets/cat.png";
+// import Box from '@mui/material/Box';
 
-function Modal({ onClose }) {
+function JoinRoomModal({ onClose }) {
   const handleClose = () => {
     onClose?.();
   };
+
   return (
-      <Overlay>
-        <ModalWrap>
-          <CloseButton onClick={handleClose}>
-            <i className="fa-solid fa-xmark"></i>
-          </CloseButton>
-          <Contents>
-            <img src={image} alt="smile" />
-            <Button onClick={handleClose}>닫기</Button>
-          </Contents>
-        </ModalWrap>
-      </Overlay>
+    <Overlay>
+      <ModalWrap>
+        <Contents>
+          <h1>마룸모 참가하기</h1>
+          <InputWithLabel label="| 초대링크" name="URL" placeholder="maroommo.com/ssafyA406" type="URL"/>
+          <InputWithLabel label="| 비밀번호" name="password" placeholder="비밀번호" type="password"/>
+
+          <BtnDiv>
+            <CButton onClick={handleClose}>뒤로</CButton>
+            <CButton onClick={handleClose}>참가하기</CButton>
+          </BtnDiv>
+        </Contents>
+      </ModalWrap>
+    </Overlay>
   );
 }
 
+const Label = styled.div` 
+  // float: left;
+  text-align: left;
+  font-size: 20px;
+  color: white;
+  margin-bottom: 0.5rem;
+`;
+
+const Input = styled.input`
+  width: 350px;
+  height: 60px;
+  outline: none;
+  border-radius: 15px;
+  // line-height: 2.5rem;
+  font-size: 20px;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+`;
+
+const Wrapper = styled.div`
+    & + & {
+        margin-top: 1rem;
+    }
+`;
+
+const InputWithLabel = ({label, ...rest}) => (
+  <Wrapper>
+    <Label>{label}</Label>
+    <Input {...rest}/>
+  </Wrapper>
+);
+
+
+// const Button = styled.button`
+//   width: 400px;
+//   height: 100px;
+//   padding: 2%;
+//   margin: 20px;
+//   font-size: 24px;
+//   background-color: #ffffff;
+//   border-radius: 25px;
+//   color: black;
+//   font-weight: 200;
+//   box-Shadow: 5px 5px 8px;
+//   cursor: pointer;
+//   &:hover {
+//     background-color: #fac2be;
+//   }
+// `;
+
 const Overlay = styled.div`
-  position: fixed;
+  // position: fixed;
   top: 0;
   left: 0;
   height: 100%;
@@ -32,52 +86,52 @@ const Overlay = styled.div`
 `;
 
 const ModalWrap = styled.div`
-  width: 600px;
-  height: fit-content;
-  border-radius: 15px;
-  background-color: #fff;
   position: absolute;
+  width: 600px;
+  height: 550px;
+  border-radius: 50px;
+  background-color: #4A4A4A;
   top: 50%;
   left: 50%;
+  box-Shadow: 5px 5px 8px;
   transform: translate(-50%, -50%);
 `;
 
-const CloseButton = styled.div`
-  float: right;
-  width: 40px;
-  height: 40px;
-  margin: 20px;
-  cursor: pointer;
-  i {
-    color: #5d5d5d;
-    font-size: 30px;
+const Contents = styled.div`
+  position: absolute;
+  width: 600px;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    color: white;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 20px;
   }
 `;
 
-const Contents = styled.div`
-  margin: 50px 30px;
-  h1 {
-    font-size: 30px;
-    font-weight: 600;
-    margin-bottom: 60px;
-  }
-  img {
-    margin-top: 60px;
-    width: 300px;
-  }
-`;
-const Button = styled.button`
-  font-size: 14px;
-  padding: 10px 20px;
-  border: none;
-  background-color: #ababab;
-  border-radius: 10px;
-  color: white;
-  font-style: italic;
-  font-weight: 200;
+const CButton = styled.button`
+  width: 110px;
+  height: 60px;
+  font-size: 20px;
+  margin-top: 50px;
+  // margin-left: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-Shadow: 5px 5px 8px;
   cursor: pointer;
   &:hover {
     background-color: #898989;
   }
 `;
-export default Modal;
+
+const BtnDiv = styled.div`
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+`
+
+export default JoinRoomModal;

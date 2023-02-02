@@ -1,6 +1,7 @@
 .mini .react-calendar {
   width: 250px;
-  /* height: 200px; */
+  height: 220px;
+  margin-top: 0;
   background: white;
   border: 1px solid #a0a096;
   /* font-family:  Arial, Helvetica, sans-serif; */
@@ -8,7 +9,7 @@
   justify-content: center;
   /* margin: auto; */
   /* margin-top: 50px; */
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
   /* border-radius: ??; */
 }
@@ -70,11 +71,11 @@
 
 .mini .react-calendar__navigation {
   display: flex;
-  height: 20px;
+  height: 30px;
   margin: 0;
   background-color: darksalmon;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .mini .react-calendar__navigation button {

@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Box } from '@mui/system';
 import styled from "styled-components";
-import ProfileModal from '../../Modal/ProfileModal';
+import GroupProfileModal from '../../Modal/GroupProfileModal';
 // import PersonIcon from '@mui/icons-material/Person';
 import EditIcon from '@mui/icons-material/Edit';
 // import PersonIcon from '@mui/icons-material/Person';
@@ -16,6 +16,9 @@ const GroupProfile = () => {
   const onClickButton = () => {
     setIsOpen(true);
   };
+
+  let getGroupName = localStorage.getItem('groupname');
+  let getGroupIntro = localStorage.getItem('groupintro');
 
   return (
     <Box
@@ -40,7 +43,7 @@ const GroupProfile = () => {
             }}>
           </EditIcon>
         </ProfileButton>
-        {isOpen && (<ProfileModal
+        {isOpen && (<GroupProfileModal
           open={isOpen}
           onClose={() => {
             setIsOpen(false);
@@ -55,8 +58,8 @@ const GroupProfile = () => {
           }}>
         </PersonIcon> */}
         <img src='/images/user.png' alt="user" className='user-image' />
-        <h2>SSAFY</h2>
-        <h4>같이 취뽀하자</h4>
+        <h2>{getGroupName}</h2>
+        <h4>{getGroupIntro}</h4>
       </div>
     </Box>
   );
@@ -69,7 +72,7 @@ const ProfileButton = styled.button`
   margin-right: 10px;
   width: 35px;
   height: 35px;
-  border-radius: 10px;
+  border-radius: 20px;
   border: none;
   color: black;
   cursor: pointer;

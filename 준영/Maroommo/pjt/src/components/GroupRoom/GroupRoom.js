@@ -1,5 +1,6 @@
 // import { Fragment } from 'react';
 import React from 'react';
+import { useState } from 'react';
 
 import { Grid } from '@mui/material';
 import { Box } from '@mui/system';
@@ -16,15 +17,25 @@ import MemoBox from './GroupRoomItem/MemoInGroup';
 import TimeTableBox from './GroupRoomItem/TimeTableInGroup';
 
 import './GroupRoomItem/Category.css';
+
+import styled from "styled-components";
+import RoomModal from '../Modal/RoomModal';
 // import classes from '../rooms/myroom.css';
 // import mealsImage from '../../assets/meals.jpg';
 
 const GroupRoom = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onClickButton = () => {
+    setIsOpen(true);
+  };
+
   return (
     <Grid container>
       <Box
         sx={{
-          width: "5vw",
+          width: "6rem",
           minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
@@ -53,7 +64,7 @@ const GroupRoom = () => {
             <HomePage />
           </Box>
           <Box>
-            <Box
+            {/* <Box
               sx={{
                 width: "4rem",
                 height: "4rem",
@@ -67,8 +78,17 @@ const GroupRoom = () => {
                   transform: "rotate(0)",
                   transition: "0.8s",
                 }
-              }}>
-            </Box>
+              }}> */}
+              <AppWrap>
+                <Button onClick={onClickButton}>+</Button>
+                {isOpen && (<RoomModal
+                  open={isOpen}
+                  onClose={() => {
+                    setIsOpen(false);
+                  }}
+                />)}
+              </AppWrap>
+            {/* </Box> */}
           </Box>
         </Box>
       </Box>
@@ -92,7 +112,7 @@ const GroupRoom = () => {
           }}>
           <GroupProfile />
           <Link to={`/group`}><HomeBtn /></Link>
-          <Link to={`/group/chat`}><ChatRoom /></Link>
+          <Link to={`/group/chat/`}><ChatRoom /></Link>
           
 
           <NavItem>
@@ -170,5 +190,30 @@ const GroupRoom = () => {
     </Grid>
   );
 };
+
+const Button = styled.button`
+  font-size: 30px;
+  width: 4rem;
+  height: 4rem;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  // padding: 10px 20px;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.35);
+  border-radius: 15px;
+  color: black;
+  // font-style: italic;
+  font-weight: 200;
+  cursor: pointer;
+  &:hover {
+    background-color: #fac2be;
+  }
+`;
+
+const AppWrap = styled.div`
+  text-align: center;
+  // margin: 50px auto;
+`;
 
 export default GroupRoom;
