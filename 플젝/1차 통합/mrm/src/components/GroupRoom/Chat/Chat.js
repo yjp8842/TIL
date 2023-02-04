@@ -4,7 +4,7 @@ import * as SockJS from "sockjs-client";
 import axios from "axios";
 import "./Chat.css";
 
-const ROOM_SEQ = 2;
+const ROOM_SEQ = 1;
 
 // 데이터 타입
 // private int roomId;
@@ -126,45 +126,34 @@ const Chat = () => {
 
   return (
     <div className="chatbox">
-      {chatMessages && chatMessages.length > 0 && (
-        <div className="chatinbox" id="chatinbox">
-          {/* <div>{chatMessages[0].date}</div> */}
+      {/* {chatMessages && chatMessages.length > 0 && ( */}
+      <div className="chatinbox" id="chatinbox">
+        {/* <div>{chatMessages[0].date}</div> */}
 
-          {chatMessages.map((chatMessage, index) => {
-            let displayDate = false;
-            const isCreated = chatMessage.date;
-    
-            if (index > 0) {
-              const nextCreated = chatMessages[index - 1].date;
-    
-              if (isCreated !== nextCreated) {
-                displayDate = true;
-              } else {
-                displayDate = false;
-              }
-            } else {
+        {chatMessages.map((chatMessage, index) => {
+          let displayDate = false;
+          const isCreated = chatMessage.date;
+  
+          if (index > 0) {
+            const nextCreated = chatMessages[index - 1].date;
+  
+            if (isCreated !== nextCreated) {
               displayDate = true;
+            } else {
+              displayDate = false;
             }
+          } else {
+            displayDate = true;
+          }
 
-            if (chatMessage.message.length > 0) {
-              if (chatMessage.userId === userId) {
-                if (displayDate) {
-                  return (
-                    <div>
-                      <div className="datebox">
-                        <p>{isCreated}</p>
-                      </div>
-                      <div className="userchat">
-                        <p className="time">{chatMessage.time}</p>
-                        <div className="userchat-inbox">
-                          <p>{chatMessage.userNickname}</p>
-                          <p className="usermsg" key={index}>{chatMessage.message}</p>
-                        </div>
-                      </div>
+          if (chatMessage.message.length > 0) {
+            if (chatMessage.userId === userId) {
+              if (displayDate) {
+                return (
+                  <div>
+                    <div className="datebox">
+                      <p>{isCreated}</p>
                     </div>
-                  )
-                } else {
-                  return (
                     <div className="userchat">
                       <p className="time">{chatMessage.time}</p>
                       <div className="userchat-inbox">
@@ -172,26 +161,26 @@ const Chat = () => {
                         <p className="usermsg" key={index}>{chatMessage.message}</p>
                       </div>
                     </div>
-                  )
-                }
+                  </div>
+                )
               } else {
-                if (displayDate) {
-                  return (
-                    <div>
-                      <div className="datebox">
-                        <p>{isCreated}</p>
-                      </div>
-                      <div className="receivechat">
-                        <div className="receivechat-inbox">
-                          <p>{chatMessage.userNickname}</p>
-                          <p className="receivemsg" key={index}>{chatMessage.message}</p>
-                        </div>
-                        <p className="time">{chatMessage.time}</p>
-                      </div>
+                return (
+                  <div className="userchat">
+                    <p className="time">{chatMessage.time}</p>
+                    <div className="userchat-inbox">
+                      <p>{chatMessage.userNickname}</p>
+                      <p className="usermsg" key={index}>{chatMessage.message}</p>
                     </div>
-                  )
-                } else {
-                  return (
+                  </div>
+                )
+              }
+            } else {
+              if (displayDate) {
+                return (
+                  <div>
+                    <div className="datebox">
+                      <p>{isCreated}</p>
+                    </div>
                     <div className="receivechat">
                       <div className="receivechat-inbox">
                         <p>{chatMessage.userNickname}</p>
@@ -199,15 +188,26 @@ const Chat = () => {
                       </div>
                       <p className="time">{chatMessage.time}</p>
                     </div>
-                  )
-                }
+                  </div>
+                )
+              } else {
+                return (
+                  <div className="receivechat">
+                    <div className="receivechat-inbox">
+                      <p>{chatMessage.userNickname}</p>
+                      <p className="receivemsg" key={index}>{chatMessage.message}</p>
+                    </div>
+                    <p className="time">{chatMessage.time}</p>
+                  </div>
+                )
               }
-            } else {
-              return;
             }
-          })}
-        </div>
-      )}
+          } else {
+            return;
+          }
+        })}
+      </div>
+      {/* )} */}
 
       {/* {chatMessages && chatMessages.map((chatMessage, index) => {
         let displayDate = false;
