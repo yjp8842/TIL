@@ -5,6 +5,7 @@ import UserProfileModal from '../../Modal/Profile/UserProfileModal';
 import EditIcon from '@mui/icons-material/Edit';
 
 import './Profile.css';
+// import axios from 'axios';
 
 const Profile = () => {
 

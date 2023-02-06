@@ -25,7 +25,7 @@ export default function SignInSide() {
   // id와 password가 빈칸인지 체크하는 함수
   const [idError, setIdError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  const [verificationError, setVerificationError] = useState('')
+  // const [verificationError, setVerificationError] = useState('')
 
   function loginCheck(e) {
     const idCheck = document.getElementById('id')
@@ -49,18 +49,18 @@ export default function SignInSide() {
     }
   }
     
-  function findPwd(e) {
-    const verificationCheck = document.getElementById('verificaition_number')
+  // function findPwd(e) {
+  //   const verificationCheck = document.getElementById('verificaition_number')
 
-    if (!verificationCheck.value) {
-      setVerificationError('인증번호를 입력해주세요');
-      verificationCheck.focus();
-      e.preventDefault();
-      return;
-    } else {
-      setVerificationError('');
-    }
-  }
+  //   if (!verificationCheck.value) {
+  //     setVerificationError('인증번호를 입력해주세요');
+  //     verificationCheck.focus();
+  //     e.preventDefault();
+  //     return;
+  //   } else {
+  //     setVerificationError('');
+  //   }
+  // }
 
 
   // 아이디, 비번 찾기 모달 띄움
