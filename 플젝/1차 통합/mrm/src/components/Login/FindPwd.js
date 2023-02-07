@@ -5,12 +5,12 @@ export function FindPwd() {
   const idPwd = document.getElementById('id-pwd').value;
   const emailPwd = document.getElementById('email-pwd').value;
   axios({
-    method:"GET",
-    url: '/user/help/pw',
-    data:{
-        "name": namePwd,
-        "id": idPwd,
-        "email": emailPwd,
+    method: "GET",
+    url: '/api/user/help/pw',
+    data: {
+      "name": namePwd,
+      "id": idPwd,
+      "email": emailPwd,
     }
   })
   .then((res) => {
