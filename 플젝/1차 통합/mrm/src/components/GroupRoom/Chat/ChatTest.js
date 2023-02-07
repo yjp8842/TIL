@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import * as StompJs from "@stomp/stompjs";
 import * as SockJS from "sockjs-client";
 import axios from "axios";
@@ -24,6 +24,7 @@ const ChatTest = () => {
     // setRoomId();
     // setUserId();
     // setUserNickname();
+
     return () => disconnect();
   }, []);
 
@@ -57,6 +58,8 @@ const ChatTest = () => {
       onConnect: () => {
         console.log('success');
         subscribe();
+        var chatInBox = document.getElementById('chatinbox');
+        chatInBox.scrollTop = chatInBox.scrollHeight;
       },
       onStompError: (frame) => {
         console.error(frame);
@@ -78,6 +81,9 @@ const ChatTest = () => {
         ...chatMessages, JSON.parse(message.body)
       ]);
     });
+    
+    var chatInBox = document.getElementById('chatinbox');
+    chatInBox.scrollTop = chatInBox.scrollHeight;
   };
 
   // 메시지 보내기 + time 보낼 필요없음
@@ -113,7 +119,7 @@ const ChatTest = () => {
   return (
     <div className="chatbox">
       {chatMessages && chatMessages.length > 0 && (
-        <div className="chatinbox">
+        <div className="chatinbox" id="chatinbox">
           {chatMessages.map((chatMessage, index) => {
             if (chatMessage.message.length > 0) {
               if (chatMessage.userId === userId) {
