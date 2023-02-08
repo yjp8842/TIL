@@ -10,8 +10,7 @@ import GroupProfile from './GroupRoomItem/GroupProfile';
 import CalendarBox from '../Calendar/Calendar';
 import HomeBtn from './GroupRoomItem/HomeBtn';
 import ChatRoom from './GroupRoomItem/ChatRoom';
-// import Chat from './Chat/Chat';
-import ChatTest from './Chat/ChatTest';
+import Chat from './Chat/Chat';
 import { NavItem } from './GroupRoomItem/Category';
 
 import './GroupRoomItem/Category.css';
@@ -123,7 +122,7 @@ const GroupChat = () => {
               justifyContent: 'center'
             }}>
             {/* <h1>채팅방</h1> */}
-            <ChatTest />
+            <Chat />
           </Box>
         </Box>
 
