@@ -17,15 +17,15 @@ function App() {
   return (
     <BrowserRouter history={history}>
       <Routes>
-        <Route path='/' element={<SignInSide/>}/>
-        <Route path='/signup' element={<SignUp/>}/>
+        <Route path='/' element={<SignInSide/>} />
+        <Route path='/signup' element={<SignUp/>} />
         <Route path="/myroom" element={<MyRoom />} />
         <Route path="/group" element={<GroupRoom />} />
         <Route path="/group/chat" element={<GroupChat />} />
         <Route path="/group/board" element={<GroupBoard />} />
         <Route path="/group/qna" element={<GroupQnA />} />
-        <Route path="/group/board/article/:articleId" element={<ArticlePage/>}/>
-        <Route path="/group/board/register" element={<RegisterPage/>}/>
+        <Route path="/group/board/article/:articleId" element={<ArticlePage/>} />
+        <Route path="/group/board/register" element={<RegisterPage/>} />
       </Routes>
     </BrowserRouter>
   );

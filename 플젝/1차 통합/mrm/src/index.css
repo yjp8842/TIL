@@ -5,9 +5,14 @@
   font-weight: normal;
   font-style: normal;
 }
+
 /* * {
   box-sizing: border-box;
 } */
+
+/* 969 * 1920
+1vw = 19.20
+1vh = 9.69 */
 
 html {
   font-family: 'GangwonEdu_OTFBoldA';

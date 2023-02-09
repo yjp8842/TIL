@@ -18,6 +18,10 @@ import CalendarBox from '../Calendar/Calendar';
 import './Group.css';
 
 const GroupRoom = () => {
+  const handleOpenNewTab = (url) => {
+    window.open(url, "_blank", "noopener, noreferrer");
+  };
+
   return (
     <Grid container>
       <div className='side-box'>
@@ -55,13 +59,13 @@ const GroupRoom = () => {
           {/* 해당 groupId의 경로로 이동할 수 있도록 변경해야함 */}
           <Link to={`/group`}><HomeBtn /></Link>
           <Link to={`/group/chat`}><ChatRoom /></Link>
-          
 
+          <button className='openvidu-btn' onClick={() => handleOpenNewTab("https://i8a406.p.ssafy.io:8085/#/")}>화상채팅방</button>
+          
           <NavItem>
             {/* 하위 메뉴 열림 */}
             <div className='category-box'>
-              <Link to={`/group/board`}><li>게시판</li></Link>  
-              <li>화상회의</li>  
+              <Link to={`/group/board`}><li>게시판</li></Link> 
               <Link to={`/group/qna`}><li>Q&A</li></Link>   
             </div>
           </NavItem>
