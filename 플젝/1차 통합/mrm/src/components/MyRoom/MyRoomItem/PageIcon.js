@@ -6,7 +6,7 @@ class PageIcon extends React.Component {
   render() {
     return (
       <div className='page-btn'>
-        <img src="images/default_image.jpg" alt="img" className='btn-img'></img>
+        {/* <img src="images/default_image.jpg" alt="img" className='btn-img'></img> */}
       </div>
     );
   }

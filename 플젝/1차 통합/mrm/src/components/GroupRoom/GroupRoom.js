@@ -14,13 +14,14 @@ import TodoBox from './GroupRoomItem/TodoInGroup';
 import MemoBox from './GroupRoomItem/MemoInGroup';
 import TimeTableBox from './GroupRoomItem/TimeTableInGroup';
 import CalendarBox from '../Calendar/Calendar';
+import OpenChatRoom from './OpenVidu/OpenChatRoom';
 
 import './Group.css';
 
 const GroupRoom = () => {
-  const handleOpenNewTab = (url) => {
-    window.open(url, "_blank", "noopener, noreferrer");
-  };
+  // const handleOpenNewTab = (url) => {
+  //   window.open(url, "_blank", "noopener, noreferrer");
+  // };
 
   return (
     <Grid container>
@@ -60,7 +61,8 @@ const GroupRoom = () => {
           <Link to={`/group`}><HomeBtn /></Link>
           <Link to={`/group/chat`}><ChatRoom /></Link>
 
-          <button className='openvidu-btn' onClick={() => handleOpenNewTab("https://i8a406.p.ssafy.io:8085/#/")}>화상채팅방</button>
+          {/* <button className='openvidu-btn' onClick={() => handleOpenNewTab("https://i8a406.p.ssafy.io:8085/#/")}>화상채팅방</button> */}
+          <Link to={`/group/open/chat`}><OpenChatRoom /></Link>
           
           <NavItem>
             {/* 하위 메뉴 열림 */}

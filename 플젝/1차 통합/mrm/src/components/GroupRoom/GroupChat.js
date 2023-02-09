@@ -11,6 +11,8 @@ import ChatRoom from './GroupRoomItem/ChatRoom';
 import Chat from './Chat/Chat';
 import { NavItem } from './GroupRoomItem/Category';
 import CalendarBox from '../Calendar/Calendar';
+import OpenChatRoom from './OpenVidu/OpenChatRoom';
+// import setOpenVidu from './OpenVidu/OpenVidu';
 
 import './Group.css';
 
@@ -52,8 +54,9 @@ const GroupChat = () => {
           {/* 해당 groupId의 경로로 이동할 수 있도록 변경해야함 */}
           <Link to={`/group`}><HomeBtn /></Link>
           <Link to={`/group/chat`}><ChatRoom /></Link>
-          
 
+          <OpenChatRoom />
+          
           <NavItem>
             {/** 하위에 있는 메뉴가 열립니다. **/}
             {/* <ul> */}
