@@ -1,54 +1,30 @@
-// import { Fragment } from 'react';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Grid } from '@mui/material';
 import { Box } from '@mui/system';
 
 import HomePage from '../MyRoom/MyRoomItem/PageIcon';
-import { Link } from 'react-router-dom';
 import GroupProfile from './GroupRoomItem/GroupProfile';
-import CalendarBox from '../Calendar/Calendar';
 import HomeBtn from './GroupRoomItem/HomeBtn';
 import ChatRoom from './GroupRoomItem/ChatRoom';
 import Chat from './Chat/Chat';
 import { NavItem } from './GroupRoomItem/Category';
+import CalendarBox from '../Calendar/Calendar';
 
-import './GroupRoomItem/Category.css';
+import './Group.css';
 
 const GroupChat = () => {
   return (
     <Grid container>
-      <Box
-        sx={{
-          width: "5vw",
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          backgroundColor: "#4A4A4A",
-        }}>
+      <div className='side-box'>
         <Box>
           {/* 해당 userId의 경로로 이동할 수 있도록 변경해야함 */}
           <Link to={`/myroom`}><HomePage /></Link>
         </Box>
-        <Box
-          sx={{
-            width: "4vw",
-            height: "5px",
-            backgroundColor: "#FFFFFF",
-            borderRadius: "10px"
-          }}>
-        </Box>
-        <Box
-          sx={{
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between"
-          }}>
-          <Box>
-            <HomePage />
-          </Box>
+        <div className='side-box-line' />
+        <div className='side-box-list'>
+          <div><HomePage /></div>
           <Box>
             <Box
               sx={{
@@ -67,26 +43,11 @@ const GroupChat = () => {
               }}>
             </Box>
           </Box>
-        </Box>
-      </Box>
+        </div>
+      </div>
 
-      <Box
-        sx={{
-          width: "95vw",
-          display: "flex",
-          justifyContent: "space-between",
-        }}>
-        <Box
-          sx={{
-            width: "15vw",
-            height: "98vh",
-            paddingY: "1vh",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            // justifyContent: "center",
-            backgroundColor: "#ebe5d1",
-          }}>
+      <div className='main-box'>
+        <div className='main-left-right'>
           <GroupProfile />
           {/* 해당 groupId의 경로로 이동할 수 있도록 변경해야함 */}
           <Link to={`/group`}><HomeBtn /></Link>
@@ -104,7 +65,7 @@ const GroupChat = () => {
             {/* </ul> */}
           </NavItem>
 
-        </Box>
+        </div>
         
         <Box
           sx={{
@@ -112,62 +73,20 @@ const GroupChat = () => {
             flexDirection: 'column'
           }}>
 
-          <Box 
-            sx={{
-              mt: 5,
-              width: "1000px",
-              // height: "920px",
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center'
-            }}>
             {/* <h1>채팅방</h1> */}
             <Chat />
           </Box>
-        </Box>
 
-        <Box
-          sx={{
-            width: "15vw",
-            height: "98vh",
-            paddingY: "1vh",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            backgroundColor: "#ebe5d1",
-          }}>
+        <div className='main-left-right'>
           <CalendarBox />
-          <Box
-            sx={{
-              width: "250px",
-              height: "550px",
-              marginTop: "20px",
-              paddingY: '20px',
-              borderRadius: "30px",
-              backgroundColor: "#FFFFFF",
-              boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
-              display: 'flex',
-              justifyContent: 'center'
-            }}>
+          <div className='member-list'>
             <h3>그룹 인원</h3>
-          </Box>
-          <Box
-            sx={{
-              width: "250px",
-              height: "80px",
-              marginTop: "20px",
-              borderRadius: "30px",
-              backgroundColor: "#FFFFFF",
-              border: '5px solid #c45c5c',
-              boxShadow: "5px 5px 8px rgba(0, 0, 0, 0.35)",
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}>
-              <h2>탈퇴하기</h2>
-          </Box>
-        </Box>
-      </Box>
+          </div>
+          <div className='quit-btn'>
+            <h2>탈퇴하기</h2>
+          </div>
+        </div>
+      </div>
     </Grid>
   );
 };

@@ -17,6 +17,8 @@ import TodoTable from './MyRoomItem/TodoTable';
 import RoomModal from "../Modal/Group/RoomModal";
 import styled from "styled-components";
 
+import "./MyRoom.css";
+
 const MyRoom = () => {
 
   const [isOpen, setIsOpen] = useState(false);
@@ -27,33 +29,12 @@ const MyRoom = () => {
 
   return (
     <Grid container>
-      <Box
-        sx={{
-          width: "5vw",
-          height: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          backgroundColor: "#4A4A4A",
-        }}>
+      <div className='side-box'>
         <Box>
           <PageIcon />
         </Box>
-        <Box
-          sx={{
-            width: "4vw",
-            height: "5px",
-            backgroundColor: "#FFFFFF",
-            borderRadius: "10px"
-          }}>
-        </Box>
-        <Box
-          sx={{
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between"
-          }}>
+        <div className='side-box-line' />
+        <div className='side-box-list'>
           <Box>
             {/* 해당 groupId의 경로로 이동할 수 있도록 변경해야함 */}
             <Link to={`/group`}><PageIcon /></Link>
@@ -69,8 +50,9 @@ const MyRoom = () => {
               />)}
             </AppWrap>
           </Box>
-        </Box>
-      </Box>
+        </div>
+      </div>
+
       <Box
         sx={{
           display: "flex",

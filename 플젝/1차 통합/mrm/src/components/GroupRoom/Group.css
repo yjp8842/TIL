@@ -1,0 +1,89 @@
+/* Group 페이지 관련 css */
+
+.side-box {
+  width: 96px;
+  height: 969px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #4A4A4A;
+}
+
+.side-box-line {
+  width: 64.48px;
+  height: 5px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+}
+
+.side-box-list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main-box {
+  width: 1824px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.category-box {
+  width: 250px;
+  height: fit-content;
+  text-align: center;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 10px;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.35);
+}
+
+.category-box li {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.main-left-right {
+  width: 288px;
+  height: 949.62px;
+  padding-top: 9.69px;
+  padding-bottom: 9.69px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ebe5d1;
+}
+
+.member-list {
+  width: 250px;
+  height: 550px;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 30px;
+  background-color: #FFFFFF;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+}
+
+.quit-btn {
+  width: 250px;
+  height: 80px;
+  margin-top: 20px;
+  border-radius: 30px;
+  background-color: #FFFFFF;
+  border: 5px solid #c45c5c;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quit-btn:hover {
+  cursor: pointer;
+}

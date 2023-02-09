@@ -1,0 +1,22 @@
+.side-box {
+  width: 96px;
+  height: 969px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #4A4A4A;
+}
+
+.side-box-line {
+  width: 64.48px;
+  height: 5px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+}
+
+.side-box-list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

@@ -1,14 +1,15 @@
 .chatbox {
-  width: 1000px;
-  height: 880px;
+  width: 1150px;
+  height: 960px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .chatinbox {
   width: 1150px; 
-  height: 850px;
+  height: 740px;
   padding: 30px;
   overflow-y: scroll;
 }
@@ -92,7 +93,7 @@
 
 .inputbox {
   width: 930px;
-  height: 100px;
+  height: 80px;
   margin-top: 30px;
   display: flex;
   justify-content: space-evenly;
