@@ -78,6 +78,7 @@ class setOpenVidu extends Component {
   }
 
   // session에 들어가는 함수
+  // 화상채팅방 버튼을 눌렀을 때 호출되어야 하는 함수
   joinSession() {
 
       // --- 1) Get an OpenVidu object ---
@@ -341,14 +342,14 @@ class setOpenVidu extends Component {
       const response = await axios.post(APPLICATION_SERVER_URL + 'api/sessions', { customSessionId: sessionId }, {
           headers: { 'Content-Type': 'application/json', },
       });
-      return response.data; // The sessionId
+      return response.data; // sessionId 받아옴
   }
 
   async createToken(sessionId) {
       const response = await axios.post(APPLICATION_SERVER_URL + 'api/sessions/' + sessionId + '/connections', {}, {
           headers: { 'Content-Type': 'application/json', },
       });
-      return response.data; // The token
+      return response.data; // token 받아옴
   }
 }
 
