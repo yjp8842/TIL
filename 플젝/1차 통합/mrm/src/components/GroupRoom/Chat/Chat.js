@@ -81,6 +81,12 @@ const Chat = () => {
     client.current.deactivate();
   };
 
+  // chatMessages에 변화가 생겼을 때 스크롤 내려가도록.
+  useEffect(() => {
+    var chatInBox = document.getElementById('chatinbox');
+    chatInBox.scrollTop = chatInBox.scrollHeight;
+  }, [chatMessages])
+
   // 메시지 받기 -> time 필요함
   const subscribe = () => {
     console.log("sub1")
@@ -91,6 +97,8 @@ const Chat = () => {
       ]);
     });
     console.log("sub2")
+
+    // 메시지 받았을 때 스크롤 내려가도록.
     var chatInBox = document.getElementById('chatinbox');
     chatInBox.scrollTop = chatInBox.scrollHeight;
   };

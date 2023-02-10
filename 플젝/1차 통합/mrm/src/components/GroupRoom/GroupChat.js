@@ -12,11 +12,14 @@ import Chat from './Chat/Chat';
 import { NavItem } from './GroupRoomItem/Category';
 import CalendarBox from '../Calendar/Calendar';
 import OpenChatRoom from './OpenVidu/OpenChatRoom';
-// import setOpenVidu from './OpenVidu/OpenVidu';
 
 import './Group.css';
 
 const GroupChat = () => {
+  const handleOpenNewTab = (url) => {
+    window.open(url, "_blank", "noopener, noreferrer");
+  };
+  
   return (
     <Grid container>
       <div className='side-box'>
@@ -55,14 +58,16 @@ const GroupChat = () => {
           <Link to={`/group`}><HomeBtn /></Link>
           <Link to={`/group/chat`}><ChatRoom /></Link>
 
-          <OpenChatRoom />
+          <div className='openvidu-btn' onClick={() => handleOpenNewTab("/group/openvidu")}>
+            <OpenChatRoom />
+          </div>
           
           <NavItem>
             {/** 하위에 있는 메뉴가 열립니다. **/}
             {/* <ul> */}
             <div className='category-box'>
               <Link to={`/group/board`}><li>게시판</li></Link>
-              <li>화상회의</li>  
+              {/* <li>화상회의</li>   */}
               <Link to={`/group/qna`}><li>Q&A</li></Link>   
             </div>
             {/* </ul> */}

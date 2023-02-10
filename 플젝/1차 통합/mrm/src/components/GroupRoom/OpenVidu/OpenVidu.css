@@ -1,15 +1,69 @@
-#join{
-  text-align: center;
+.container {
+  height: 100vh;
+  width: 100%;
+  background-color: #202124;
 }
 
-#join, #session {
+.middle {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.left {
+  flex: 3;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.video-container {
+  margin-top: 30px;
+  width: 95%;
+  height: 77vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.openvidu-chat {
+  width: 100%;
+  height: 93%;
+  border-radius: 5px;
+  background-color: white;
+  display: flex;
+}
+
+.stream-container {
+  width: 100%;
+  position: relative;
+  border-radius: 5px;
+  min-height: 34vh;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.bottom {
+  height: 13vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+}
+
+.bottom-box {
+  display: flex;
+  height: 100%;
+  width: 20%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.chaticon-box {
   position: absolute;
-  margin: auto;
-  top: 100px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 70%;
-  width: 70%;
+  color: white;
+  right: 60px;
+  top: 50%;
+  bottom: 50%;
+  cursor: pointer;
 }
-

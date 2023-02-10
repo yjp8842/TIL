@@ -10,7 +10,7 @@ import GroupQnA from './components/GroupRoom/GroupQnA';
 import ArticlePage from './components/GroupRoom/Board/ArticlePage/ArticlePage';
 import RegisterPage from './components/GroupRoom/Board/RegisterPage';
 import history from './utils/history';
-// import setOpenVidu from './components/GroupRoom/OpenVidu/OpenVidu';
+import OpenChat from './components/GroupRoom/OpenVidu/OpenVidu';
 // import { Box } from '@mui/system';
 // import { Fragment } from 'react';
 
@@ -27,7 +27,7 @@ function App() {
         <Route path="/group/qna" element={<GroupQnA />} />
         <Route path="/group/board/article/:articleId" element={<ArticlePage/>} />
         <Route path="/group/board/register" element={<RegisterPage/>} />
-        {/* <Route path="/group/open/chat" element={<setOpenVidu />} /> */}
+        <Route path="/group/openvidu" element={<OpenChat/>} />
       </Routes>
     </BrowserRouter>
   );

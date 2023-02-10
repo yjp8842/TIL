@@ -89,20 +89,6 @@
 }
 
 /* openvidu */
-.openvidu-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 250px;
-  height: 80px;
-  margin-top: 20px;
-  border-radius: 20px;
-  background-color: #FFFFFF;
-  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.35);
-  border: none;
-  font-size: 24px;
-}
-
 .openvidu-btn:hover {
   cursor: pointer;
 }

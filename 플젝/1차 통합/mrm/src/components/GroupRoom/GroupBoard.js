@@ -13,10 +13,14 @@ import { NavItem } from './GroupRoomItem/Category';
 import CalendarBox from '../Calendar/Calendar';
 import { boardActions } from '../../slice/boardSlice';
 import BoardList from './Board/ArticlePage/Sections/BoardList';
+import OpenChatRoom from './OpenVidu/OpenChatRoom';
 
 import './Group.css';
 
 const GroupBoard = () => {
+  const handleOpenNewTab = (url) => {
+    window.open(url, "_blank", "noopener, noreferrer");
+  };
 
   const navigate = useNavigate();
   const onArticleTitleClick = (id) => {
@@ -74,6 +78,9 @@ const GroupBoard = () => {
           <Link to={`/group`}><HomeBtn /></Link>
           <Link to={`/group/chat`}><ChatRoom /></Link>
           
+          <div className='openvidu-btn' onClick={() => handleOpenNewTab("/group/openvidu")}>
+            <OpenChatRoom />
+          </div>
 
           <NavItem>
             {/** 하위에 있는 메뉴가 열립니다. **/}
