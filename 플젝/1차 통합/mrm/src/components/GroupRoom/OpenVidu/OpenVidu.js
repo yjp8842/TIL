@@ -10,25 +10,23 @@ import VideocamOffOutlinedIcon from "@mui/icons-material/VideocamOffOutlined";
 import MicOffIcon from "@mui/icons-material/MicOff";
 import HeadsetOffIcon from "@mui/icons-material/HeadsetOff";
 import CallEndIcon from "@mui/icons-material/CallEnd";
-import ChatIcon from "@mui/icons-material/Chat";
+// import ChatIcon from "@mui/icons-material/Chat";
+import ScreenshotMonitorIcon from '@mui/icons-material/ScreenshotMonitor';
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import ScreenShareIcon from '@mui/icons-material/ScreenShare';
+import StopScreenShareIcon from '@mui/icons-material/StopScreenShare';
+
+import OpenViduChat from "./OpenViduChat";
+import OpenViduQnA from "./OpenViduQnA";
 
 import "./OpenVidu.css";
+import { style } from "@mui/system";
 
 // server url
 const APPLICATION_SERVER_URL = "https://i8a406.p.ssafy.io:8085/";
 
 // 테스트할때 아이디는 OPENVIDUAPP
 // 비번 a406
-
-const Right = styled.div`
-  position: relative;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  transition: 0.5s;
-  ${(props) =>
-    props.primary ? `right:0; flex:1;` : `right:calc(-100vw/3); flex:0;`}
-`;
 
 const StreamContainerWrapper = styled.div`
   display: grid;
@@ -116,76 +114,89 @@ class OpenChat extends Component {
         ) : null}
 
         {this.state.session !== undefined ? (
-          <div className="middle">
-            <div className="left">
-              <div className="video-container">
-                <StreamContainerWrapper
-                  primary={this.state.isChat}
-                  ref={this.userRef}
-                >
-                  {this.state.publisher !== undefined ? (
-                    <div className="stream-container" key={this.state.publisher.stream.streamId}>
-                      <UserVideoComponent
-                        streamManager={this.state.publisher}
-                      />
-                    </div>
-                  ) : null}
-                  {this.state.subscribers.map((sub, i) => (
-                    <div className="stream-container" key={sub.stream.streamId}>
-                      <UserVideoComponent streamManager={sub} />
-                    </div>
-                  ))}
-                </StreamContainerWrapper>
+          <div className="whole">
+            <div className="middle">
+              <div className="left">
+                <div className="video-container">
+                  <StreamContainerWrapper
+                    ref={this.userRef}
+                  >
+                    {this.state.publisher !== undefined ? (
+                      <div className="stream-container" key={this.state.publisher.stream.streamId}>
+                        <UserVideoComponent
+                          streamManager={this.state.publisher}
+                        />
+                      </div>
+                    ) : null}
+                    {this.state.subscribers.map((sub, i) => (
+                      <div className="stream-container" key={sub.stream.streamId}>
+                        <UserVideoComponent streamManager={sub} />
+                      </div>
+                    ))}
+                  </StreamContainerWrapper>
+                </div>
+              </div>
+
+              <div className="bottom">
+                <div className="bottom-box">
+                  <Icon
+                    primary={!this.state.isCamera}
+                    onClick={() => this.handleToggle("camera")}
+                  >
+                    {this.state.isCamera ? (
+                      <VideocamOutlinedIcon />
+                    ) : (
+                      <VideocamOffOutlinedIcon />
+                    )}
+                  </Icon>
+
+                  <Icon
+                    primary={!this.state.isMike}
+                    onClick={() => this.handleToggle("mike")}
+                  >
+                    {this.state.isMike ? <MicOutlinedIcon /> : <MicOffIcon />}
+                  </Icon>
+
+                  <Icon
+                    primary={!this.state.isSpeaker}
+                    onClick={() => this.handleToggle("speaker")}
+                  >
+                    {this.state.isSpeaker ? <HeadsetIcon /> : <HeadsetOffIcon />}
+                  </Icon>
+
+                  <Icon primary onClick={() => {
+                    this.leaveSession();
+                    window.close();  // session 나가면서 윈도우 창 꺼지도록
+                  }}>
+                    <CallEndIcon />
+                  </Icon>
+
+                  <Icon>
+                    <ScreenShareIcon />
+                  </Icon>
+                  <Icon>
+                    <ScreenshotMonitorIcon />
+                  </Icon>
+                  <Icon>
+                    <SportsEsportsIcon />
+                  </Icon>
+                </div>
               </div>
             </div>
 
-            <Right primary={this.state.isChat}>
-              <div className="openvidu-chat">
-                {/* <ChatBox /> */}
+
+            <div className="openvidu-chat">
+              {/* <ChatBox /> */}
+              <div className="toggle-btn">
+                <button className="openvidu-toggle1" onClick={() => this.setState({ isChat: !this.state.isChat, isQnA: false })}>채팅</button>
+                <button className="openvidu-toggle2" onClick={() => this.setState({ isQnA: !this.state.isQnA, isChat: false })}>Q&A</button>
               </div>
-            </Right>
-          </div>
-        ) : null}
-        
-        {this.state.session !== undefined ? (
-          <div className="bottom">
-            <div className="bottom-box">
-              <Icon
-                primary={!this.state.isCamera}
-                onClick={() => this.handleToggle("camera")}
-              >
-                {this.state.isCamera ? (
-                  <VideocamOutlinedIcon />
-                ) : (
-                  <VideocamOffOutlinedIcon />
-                )}
-              </Icon>
-
-              <Icon
-                primary={!this.state.isMike}
-                onClick={() => this.handleToggle("mike")}
-              >
-                {this.state.isMike ? <MicOutlinedIcon /> : <MicOffIcon />}
-              </Icon>
-
-              <Icon
-                primary={!this.state.isSpeaker}
-                onClick={() => this.handleToggle("speaker")}
-              >
-                {this.state.isSpeaker ? <HeadsetIcon /> : <HeadsetOffIcon />}
-              </Icon>
-
-              <Icon primary onClick={() => {
-                this.leaveSession();
-                window.close();  // session 나가면서 윈도우 창 꺼지도록
-              }}>
-                <CallEndIcon />
-              </Icon>
-            </div>
-            <div className="chaticon-box"
-              onClick={() => this.setState({ isChat: !this.state.isChat })}
-            >
-              <ChatIcon />
+              {this.state.isChat === true ? (
+                <OpenViduChat />
+              ) : null}
+              {this.state.isQnA === true ? (
+                <OpenViduQnA />
+              ) : null}
             </div>
           </div>
         ) : null}
@@ -210,6 +221,7 @@ class OpenChat extends Component {
       isCamera: true,
       isSpeaker: true,
       isChat: false,
+      isQnA: false,
     };
 
     this.joinSession = this.joinSession.bind(this);
