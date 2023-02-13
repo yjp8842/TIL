@@ -3,6 +3,7 @@ import * as StompJs from "@stomp/stompjs";
 import * as SockJS from "sockjs-client";
 import axios from "axios";
 import "./Chat.css";
+import { useSelector } from "react-redux";
 
 const ROOM_SEQ = 1;
 

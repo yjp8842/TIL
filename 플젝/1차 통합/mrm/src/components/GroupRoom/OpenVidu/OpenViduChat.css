@@ -1,6 +1,6 @@
 .openvidu-chatbox {
   width: fit-content;
-  height: 890px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

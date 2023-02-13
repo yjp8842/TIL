@@ -14,13 +14,11 @@ import CallEndIcon from "@mui/icons-material/CallEnd";
 import ScreenshotMonitorIcon from '@mui/icons-material/ScreenshotMonitor';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import ScreenShareIcon from '@mui/icons-material/ScreenShare';
-import StopScreenShareIcon from '@mui/icons-material/StopScreenShare';
 
 import OpenViduChat from "./OpenViduChat";
 import OpenViduQnA from "./OpenViduQnA";
 
 import "./OpenVidu.css";
-import { style } from "@mui/system";
 
 // server url
 const APPLICATION_SERVER_URL = "https://i8a406.p.ssafy.io:8085/";
@@ -34,7 +32,8 @@ const StreamContainerWrapper = styled.div`
   ${(props) =>
     props.primary
       ? `
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
     `
       : `
     grid-template-columns: repeat(3, 1fr);
@@ -118,22 +117,39 @@ class OpenChat extends Component {
             <div className="middle">
               <div className="left">
                 <div className="video-container">
-                  <StreamContainerWrapper
-                    ref={this.userRef}
-                  >
-                    {this.state.publisher !== undefined ? (
-                      <div className="stream-container" key={this.state.publisher.stream.streamId}>
-                        <UserVideoComponent
-                          streamManager={this.state.publisher}
-                        />
-                      </div>
-                    ) : null}
-                    {this.state.subscribers.map((sub, i) => (
-                      <div className="stream-container" key={sub.stream.streamId}>
-                        <UserVideoComponent streamManager={sub} />
-                      </div>
-                    ))}
-                  </StreamContainerWrapper>
+                  {this.state.isShare === false ? (
+                    <StreamContainerWrapper
+                      ref={this.userRef}
+                    >
+                      {this.state.publisher !== undefined ? (
+                        <div className="stream-container" key={this.state.publisher.stream.streamId}>
+                          <UserVideoComponent
+                            streamManager={this.state.publisher}
+                          />
+                        </div>
+                      ) : null}
+                      {this.state.subscribers.map((sub, i) => (
+                        <div className="stream-container" key={sub.stream.streamId}>
+                          <UserVideoComponent streamManager={sub} />
+                        </div>
+                      ))}
+                    </StreamContainerWrapper>
+                  ) : 
+                    <div className="share">
+                      {this.state.publisher !== undefined ? (
+                        <div className="stream-container" key={this.state.publisher.stream.streamId}>
+                          <UserVideoComponent
+                            streamManager={this.state.publisher}
+                          />
+                        </div>
+                      ) : null}
+                      {this.state.subscribers.map((sub, i) => (
+                        <div className="stream-container" key={sub.stream.streamId}>
+                          <UserVideoComponent streamManager={sub} />
+                        </div>
+                      ))}
+                    </div>
+                  }
                 </div>
               </div>
 
@@ -164,14 +180,44 @@ class OpenChat extends Component {
                     {this.state.isSpeaker ? <HeadsetIcon /> : <HeadsetOffIcon />}
                   </Icon>
 
-                  <Icon primary onClick={() => {
+                  <Icon style={{ marginLeft: '100px', marginRight: '100px' }} primary onClick={() => {
                     this.leaveSession();
                     window.close();  // session 나가면서 윈도우 창 꺼지도록
                   }}>
                     <CallEndIcon />
                   </Icon>
 
-                  <Icon>
+                  <Icon 
+                    onClick={() => this.setState({ isShare: !this.state.isShare })}
+                    // onClick={() => {
+                    //   let publisher = this.OV.initPublisher("html-element-id", {
+                    //     audioSource: undefined,
+                    //     videoSource: "screen", // 웹캠 기본 값으로
+                    //     publishAudio: true,
+                    //     publishVideo: true,
+                    //     resolution: "640x480",
+                    //     frameRate: 30,
+                    //     insertMode: "APPEND",
+                    //     mirror: "false",
+                    //   });
+        
+                    //   // this.mySession.publish(publisher);
+        
+                      
+                    //   publisher.once('accessAllowed', (event) => {
+                    //     publisher.stream.getMediaStream().getVideoTracks()[0].addEventListener('ended', () => {
+                    //       console.log('User pressed the "Stop sharing" button');
+                    //     });
+                    //     this.mySession.publish(publisher);
+                    //     this.setState({ mainStreamManager: publisher, publisher });
+            
+                    //   });
+              
+                    //   publisher.once('accessDenied', (event) => {
+                    //     console.warn('ScreenShare: Access Denied');
+                    //   });
+                    // }}
+                  >
                     <ScreenShareIcon />
                   </Icon>
                   <Icon>
@@ -209,9 +255,7 @@ class OpenChat extends Component {
     this.userRef = React.createRef();
 
     this.state = {
-      // mySessionId: "SessionA",
       mySessionId: "1",
-      // myUserName: "Participant" + Math.floor(Math.random() * 100),
       myUserName: "유진",  // userId
       session: undefined,
       mainStreamManager: undefined,
@@ -222,6 +266,7 @@ class OpenChat extends Component {
       isSpeaker: true,
       isChat: false,
       isQnA: false,
+      isShare: false
     };
 
     this.joinSession = this.joinSession.bind(this);
