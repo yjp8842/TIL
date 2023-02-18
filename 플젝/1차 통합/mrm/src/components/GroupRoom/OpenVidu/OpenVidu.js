@@ -29,15 +29,9 @@ const APPLICATION_SERVER_URL = "https://i8a406.p.ssafy.io:8085/";
 const StreamContainerWrapper = styled.div`
   display: grid;
   place-items: center;
-  ${(props) =>
-    props.primary
-      ? `
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    `
-      : `
-    grid-template-columns: repeat(3, 1fr);
-    `}
+  // grid 어떻게 나눠야할지 모르겠음..
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   grid-gap: 20px;
   height: 100%;
   padding: 10px;
@@ -117,7 +111,23 @@ class OpenChat extends Component {
             <div className="middle">
               <div className="left">
                 <div className="video-container">
-                  {this.state.isShare === false ? (
+                  <StreamContainerWrapper
+                    ref={this.userRef}
+                    >
+                    {this.state.publisher !== undefined ? (
+                      <div className="stream-container" key={this.state.publisher.stream.streamId}>
+                        <UserVideoComponent
+                          streamManager={this.state.publisher}
+                        />
+                      </div>
+                    ) : null}
+                    {this.state.subscribers.map((sub, i) => (
+                      <div className="stream-container" key={sub.stream.streamId}>
+                        <UserVideoComponent streamManager={sub} />
+                      </div>
+                    ))}
+                    </StreamContainerWrapper>
+                  {/* {this.state.isShare === false ? (
                     <StreamContainerWrapper
                       ref={this.userRef}
                     >
@@ -149,7 +159,7 @@ class OpenChat extends Component {
                         </div>
                       ))}
                     </div>
-                  }
+                  } */}
                 </div>
               </div>
 
@@ -188,35 +198,38 @@ class OpenChat extends Component {
                   </Icon>
 
                   <Icon 
-                    onClick={() => this.setState({ isShare: !this.state.isShare })}
                     // onClick={() => {
-                    //   let publisher = this.OV.initPublisher("html-element-id", {
-                    //     audioSource: undefined,
-                    //     videoSource: "screen", // 웹캠 기본 값으로
-                    //     publishAudio: true,
-                    //     publishVideo: true,
-                    //     resolution: "640x480",
-                    //     frameRate: 30,
-                    //     insertMode: "APPEND",
-                    //     mirror: "false",
-                    //   });
-        
-                    //   // this.mySession.publish(publisher);
-        
-                      
-                    //   publisher.once('accessAllowed', (event) => {
-                    //     publisher.stream.getMediaStream().getVideoTracks()[0].addEventListener('ended', () => {
-                    //       console.log('User pressed the "Stop sharing" button');
-                    //     });
-                    //     this.mySession.publish(publisher);
-                    //     this.setState({ mainStreamManager: publisher, publisher });
-            
-                    //   });
-              
-                    //   publisher.once('accessDenied', (event) => {
-                    //     console.warn('ScreenShare: Access Denied');
-                    //   });
+                    //   this.setState({ isShare: !this.state.isShare })
                     // }}
+                    onClick={() => {
+                      let newPublisher = this.OV.initPublisher("html-element-id", {
+                        audioSource: undefined,
+                        videoSource: "screen", // 웹캠 기본 값으로
+                        publishAudio: true,
+                        publishVideo: true,
+                        resolution: "640x480",
+                        frameRate: 30,
+                        insertMode: "APPEND",
+                        mirror: "false",
+                      });
+        
+                      this.mySession.publish(newPublisher);
+                      this.setState({ mainStreamManager: newPublisher, newPublisher });
+        
+                      newPublisher.once('accessAllowed', (event) => {
+                        newPublisher.stream.getMediaStream().getVideoTracks()[0].addEventListener('ended', () => {
+                          console.log('User pressed the "Stop sharing" button');
+                        });
+                        this.mySession.unpublish(this.publisher);
+                        // this.mySession.publish(newPublisher);
+                        // this.setState({ mainStreamManager: newPublisher, newPublisher });
+            
+                      });
+              
+                      newPublisher.once('accessDenied', (event) => {
+                        console.warn('ScreenShare: Access Denied');
+                      });
+                    }}
                   >
                     <ScreenShareIcon />
                   </Icon>
@@ -255,7 +268,7 @@ class OpenChat extends Component {
     this.userRef = React.createRef();
 
     this.state = {
-      mySessionId: "1",
+      mySessionId: "2",
       myUserName: "유진",  // userId
       session: undefined,
       mainStreamManager: undefined,

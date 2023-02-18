@@ -281,7 +281,7 @@ export default class OpenViduChat extends Component {
   }
 
 
-  componentDidMount() {
+  componentDidMount(e) {
     this.props.main.stream.session.on('signal:chat', (event) => {
       const data = JSON.parse(event.data);
       let messageList = this.state.messageList;
@@ -322,10 +322,6 @@ export default class OpenViduChat extends Component {
         this.chatScroll.current.scrollTop = this.chatScroll.current.scrollHeight;
       } catch (err) {}
     }, 20);
-  }
-
-  close() {
-    this.props.close(undefined);
   }
 
   render() {

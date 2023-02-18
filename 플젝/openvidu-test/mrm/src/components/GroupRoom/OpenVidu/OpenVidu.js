@@ -338,14 +338,14 @@ class OpenChat extends Component {
     this.handleToggle = this.handleToggle.bind(this);
   }
 
-  getStreamManager() {
-    return this.mainStreamManager;
-  }
-
-  componentDidMount() {
+  componentDidMount(e) {
     // this.leaveSession();
-    window.addEventListener("beforeunload", this.onbeforeunload);
-    // 스터디방에서 화상회의 입장 -> props로 roomId로 받으면 세션id 업뎃 user 정보 전역변수 가져옴 -> 상태값 업뎃
+    // window.addEventListener("beforeunload", this.onbeforeunload);
+    if (this.session === undefined) {
+      this.joinSession();
+    } else {
+      e.preventDefault();
+    }
   }
 
   componentWillUnmount() {
