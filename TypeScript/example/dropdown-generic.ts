@@ -25,7 +25,7 @@ const numberOfProducts: DropdownItem<number>[] = [
   { value: 3, selected: false },
 ];
 
-function createDropdownItem(item: DropdownItem<string> | DropdownItem<number>) {
+function createDropdownItem<T extends string | number>(item: DropdownItem<T>) {
   const option = document.createElement('option');
   option.value = item.value.toString();
   option.innerText = item.value.toString();
@@ -37,7 +37,7 @@ function createDropdownItem(item: DropdownItem<string> | DropdownItem<number>) {
 emails.forEach(function (email) {
   const item = createDropdownItem(email);
   const selectTag = document.querySelector('#email-dropdown');
-  selectTag.appendChild(item);
+  // selectTag.appendChild(item);
 });
 
 numberOfProducts.forEach(function (product) {
