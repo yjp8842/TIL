@@ -12,3 +12,7 @@ FiraFont 설정하기
     // "editor.fontWeight": "500" // Medium
     // "editor.fontWeight": "600" // Bold
 ```
+
+```
+
+```
